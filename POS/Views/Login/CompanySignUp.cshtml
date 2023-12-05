@@ -1,0 +1,118 @@
+﻿@{
+    ViewBag.Title = "Login page";
+    Layout = "~/Views/Shared/_Login.cshtml";
+}
+<style>
+    .form-control.choices-single {
+        appearance: auto;
+    }
+</style>
+<div class="page-wrapper" style="margin-right:10%;margin-left:10%;margin-top: 45px;margin-bottom: -6px">
+    <div class="page-content">
+        <div class="card border-top border-0 border-4 border-dark">
+            <div class="card-body p-5">
+                <div class="card-title text-center">
+                    <h3 class="mb-5 mt-2 text-dark">Company Sign Up</h3>
+                </div>
+                <hr style="margin-top:-30px;" />
+                <form class="row g-3">
+                    <div class="col-6">
+                        <label for="txt_CompanyName" class="form-label">Company Name<span style="color:red;">*</span></label>
+                        <div class="input-group input-group-lg">
+                            <input type="text" class="form-control border-start-1" id="txt_CompanyName" placeholder="" style="border-radius:10px;" required />
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <label for="txt_Country" class="form-label">Country<span style="color:red;">*</span></label>
+                        <div class="input-group input-group-lg">
+                            <input type="text" class="form-control border-start-1" id="txt_Country" placeholder="" style="border-radius:10px;" required />
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <label for="txt_FirstName" class="form-label">First Name<span style="color:red;">*</span></label>
+                        <div class="input-group input-group-lg">
+                            <input type="text" class="form-control border-start-1" id="txt_FirstName" placeholder="" style="border-radius:10px;" required />
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <label for="txt_lastName" class="form-label">Last Name<span style="color:red;">*</span></label>
+                        <div class="input-group input-group-lg">
+                            <input type="text" class="form-control border-start-1" id="txt_lastName" placeholder="" style="border-radius:10px;" required />
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <label for="txt_ContactEmail" class="form-label">Contact Email<span style="color:red;">*</span></label>
+                        <div class="input-group input-group-lg">
+                            <input type="text" class="form-control border-start-1" id="txt_ContactEmail" placeholder="" style="border-radius:10px;" required />
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <label for="txt_ContactPhone" class="form-label">Contact Phone<span style="color:red;">*</span></label>
+                        <div class="input-group input-group-lg">
+                            <input type="text" class="form-control border-start-1" id="txt_ContactPhone" placeholder="" style="border-radius:10px;" required />
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <label for="txt_Website" class="form-label">WebSite</label>
+                        <div class="input-group input-group-lg">
+                            <input type="text" class="form-control border-start-1" id="txt_WebSite" placeholder="" style="border-radius:10px;" />
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <label for="dropdownOptions" class="form-label">Preferred Contact Method</label>
+                        <div class="input-group input-group-lg">
+                            <select class="form-control choices-single" id="Select">
+                                <option value=""></option>
+                                <option value="Email">Email</option>
+                                <option value="WhatsApp">WhatsApp</option>
+                                <option value="Phone">Phone</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <label for="txt_Address" class="form-label">Address</label>
+                        <div class="input-group input-group-lg">
+                            <input type="text" class="form-control border-start-1" id="txt_Address" placeholder="" style="border-radius:10px;" />
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <label for="txt_Description2" class="form-label">Business Description</label>
+                        <div class="input-group input-group-lg">
+                            <textarea class="form-control border-start-1" id="txt_Description" placeholder="" style="border-radius:10px;"></textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="col-6">
+                        <div class="d-grid">
+                            <a href="#" class="Clearform"><i class="fas fa-undo"></i>Clear form</a>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        </div>
+                    <div class="col-3">
+                        <div class="d-grid">
+                            <button type="submit" id="Save" class="btn btn-dark btn-lg px-5">Submit</button>
+                        </div>
+                    </div>                  
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $('.Clearform').click(function () {
+            debugger;
+            $("#txt_CompanyName").val('');
+            $("#txt_Country").val('');
+            $("#txt_FirstName").val('');
+            $("#txt_lastName").val('');
+            $("#txt_ContactEmail").val('');
+            $("#txt_ContactPhone").val('');
+            $("#txt_WebSite").val('');
+            $("#Select").val('');
+            $("#txt_Address").val('');
+            $("#txt_Description").val('');
+        });           
+    });
+</script>

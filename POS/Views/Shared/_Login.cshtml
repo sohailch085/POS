@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Tracking</title>
+    <!--favicon-->
+    @* <link rel="icon" href="assets/images/favicon-32x32.png" type="image/png" /> *@
+
+    <!-- Bootstrap CSS -->
+    @*  <link href="assets/css/bootstrap.min.css" rel="stylesheet"> *@
+    <link href="~/assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/assets/css/bootstrap-extended.css" rel="stylesheet" />
+    @*   <link href="assets/css/bootstrap-extended.css" rel="stylesheet" /> *@
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&amp;display=swap" rel="stylesheet">
+    @* <link href="assets/css/app.css" rel="stylesheet" /> *@
+    <link href="~/assets/css/app.css" rel="stylesheet" />
+    <link href="~/assets/css/icons.css" rel="stylesheet" />
+    @*  <link href="assets/css/icons.css" rel="stylesheet" /> *@
+    @*   <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" /> *@
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js@9.0.1/public/assets/styles/choices.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/choices.js@9.0.1/public/assets/scripts/choices.min.js"></script>
+</head>
+<body style="background-color:#FFFFFF">
+    <div class="wrapper">
+        <div class="container">
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
+        </div>
+    </div>
+    <script src="~/CutomJquery/Login.js"></script>
+</body>
+
+</html>
