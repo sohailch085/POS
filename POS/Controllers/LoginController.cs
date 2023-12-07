@@ -5,43 +5,35 @@ using Microsoft.AspNetCore.Http.Metadata;
 
 namespace POS.Controllers
 {
-    //[ApiController]
-    //[Route("api/[controller]")]
-    //[Route("Login")]
     public class LoginController : Controller
     {
-        
-        public IActionResult Login()
-        {
-            return View();
-        }
+
         public IActionResult CompanySignUp()
-        { 
+        {
             return View();
         }
-        //  [Route ("CompanySignUp")]
-        [HttpPost("CompanySignUpSave")]
-        public IActionResult CompanySignUpSave([FromBody] CompanysignupModel model)
+        [HttpPost]
+        public JsonResult CompanySignUpSave([FromBody] CompanysignupModel model)
         {
-            if(model.lstcompanySignups == null)
+            if (model.lstcompanySignups == null || model == null || model.lstcompanySignups.Count < 0)
                 return Json("404");
             DBConnection dBConnection = new DBConnection();
             CompanySignup companySignup = new CompanySignup();
             foreach (var item in model.lstcompanySignups)
             {
-                companySignup.CompanyName = item.CompanyName;
-                companySignup.Country = item.Country;
-                companySignup.FirstName = item.FirstName;
-                companySignup.LastName = item.LastName;
+                companySignup.CompanyName = item.CompanyName.ToUpper();
+                companySignup.Country = item.Country.ToUpper();
+                companySignup.FirstName = item.FirstName.ToUpper();
+                companySignup.LastName = item.LastName.ToUpper();
                 companySignup.ContactEmail = item.ContactEmail;
                 companySignup.ContactPhone = item.ContactPhone;
-                companySignup.WebSite = item.WebSite;
-                companySignup.PreferredContactMethod = item.PreferredContactMethod;
-                companySignup.Address = item.Address;
-                companySignup.BusinessDescription = item.BusinessDescription;
+                companySignup.WebSite = item.WebSite.ToUpper();
+                companySignup.PreferredContactMethod = item.PreferredContactMethod.ToUpper();
+                companySignup.Address = item.Address.ToUpper();
+                companySignup.BusinessDescription = item.BusinessDescription.ToUpper();
             }
             dBConnection.AddCompanySignup(companySignup);
-            return Json(""); 
+            return Json("");
         }
     }
 }

@@ -1,9 +1,9 @@
 ﻿using CommonLayer;
 using Microsoft.Data.SqlClient;
 
-namespace POS
+namespace DataBaseLayer
 {
-    public class DBConnection
+    public class Login
     {
         public void AddCompanySignup(CompanySignup companySignup)
         {

@@ -70,7 +70,8 @@
                     <div class="col-6">
                         <label class="form-label">Contact Phone<span style="">*</span></label>
                         <div class="input-group input-group-lg">
-                            <input type="text" class="form-control border-start-1" ng-model="ContactPhone" id="txt_ContactPhone" placeholder="" style=";" required />
+                            @* <input type="text" class="form-control border-start-1" ng-model="ContactPhone" id="txt_ContactPhone" placeholder="" style=";" required /> *@
+                            <input type="text" class="form-control border-start-1" ng-model="ContactPhone" id="txt_ContactPhone" placeholder="" style="" required ui-mask="(999) 999-9999" />
                         </div>
                     </div>
                     <div class="col-6">
@@ -110,7 +111,7 @@
                     </div>
                     <div class="col-3">
                         <div class="d-grid">
-                            <button type="submit" id="Save" ng-click="btnsave()" class="btn btn-dark btn-lg px-5">Submit</button>
+                            <button type="submit" id="Save" @* ng-disabled="isActive" *@ ng-click="btnCompanySignUpSave()" class="btn btn-dark btn-lg px-5">Submit</button>
                         </div>
                     </div>
                 </form>

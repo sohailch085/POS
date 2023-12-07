@@ -22,6 +22,6 @@ namespace CommonLayer
     }
     public class CompanysignupModel
     {
-        public List<CompanySignup> lstcompanySignups { get; set; }
+        public List<CompanySignup> lstcompanySignups { get; set; }=new List<CompanySignup>();
     }
 }
