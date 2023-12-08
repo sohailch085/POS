@@ -21,11 +21,15 @@ angular.module('appLogin', [])
         }
         $scope.btnCompanySignUpSave = function () {
             debugger;
-            var CompanyName = $("#txt_CompanyName").val();
-            var Country = $("#txt_Country").val();
-            var FirstName = $("#txt_FirstName").val();
-            var LastName = $("#txt_lastName").val();           
-            if (CompanyName != "" && Country != "" && FirstName != ""  && LastName != "" ) {
+            var CompanyName = $("#CompanyName").val();
+            var Country = $("#Country").val();
+            var FirstName = $("#FirstName").val();
+            var LastName = $("#LastName").val();           
+            if ((CompanyName !== "" && CompanyName !== "undefined") &&
+                (Country !== "" && Country !== "undefined") &&
+                (FirstName !== "" && FirstName !== "undefined") &&
+                (LastName !== "" && LastName !== "undefined")) {
+
                 $scope.Companysignuparry = {
                     CompanyName: $scope.CompanyName,
                     Country: $scope.Country,
@@ -47,6 +51,7 @@ angular.module('appLogin', [])
                     header: { "Content-Type": "application/json" },                   
                     data: JSON.stringify({ lstcompanySignups: $scope.Companysignuplist }) 
                 }).then(function (response) {
+                    $scope.linkClearform();
                 }).finally(function () {
                    
                   
@@ -54,8 +59,4 @@ angular.module('appLogin', [])
             }
             
         }
-
-
-       
-
     });

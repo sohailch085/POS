@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
 using CommonLayer;
+using System.Net.Http;
 using Microsoft.AspNetCore.Http.Metadata;
 
 namespace POS.Controllers
@@ -10,6 +11,7 @@ namespace POS.Controllers
 
         public IActionResult CompanySignUp()
         {
+           
             return View();
         }
         [HttpPost]
