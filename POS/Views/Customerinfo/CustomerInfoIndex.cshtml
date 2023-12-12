@@ -1,0 +1,354 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .form-control.choices-single {
+        appearance: auto;
+    }
+
+    .form-select {
+        /*  height: 46px; */
+        /*  border-radius: 10px; */
+        margin-left: -1px;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        font-size: 14px;
+    }
+
+    .form-control {
+        /* border-radius: 10px !important; */
+        margin-left: -1px;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+
+    .page-wrapper {
+        margin-right: 10%;
+        margin-left: 8%;
+        /*   margin-top: 3%; */
+        /*  margin-bottom: -6px */
+    }
+
+    span {
+        color: red;
+    }
+
+    .btn {
+        width: 100% !important
+    }
+</style>
+<div class="page-wrapper" style="" ng-controller="controllerCustomerInfo">
+    <div class="page-content">
+        <div class="card border-top border-0 border-4 border-dark">
+            <div class="card-body p-5">
+                <div class="card-title d-flex align-items-center">
+                    <h3 class="mb-0 text-dark"><b>Customer Information</b></h3>
+                </div>
+                <hr>
+                <form class="row g-3">
+                    <div class="col-md-4">
+                        <label class="form-label">Customer Type</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-transparent">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list-ul" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m-3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2" />
+                                </svg>
+                            </span>
+                            <select class="form-select" id="PreferredContactMethod" ng-model="">
+                                <option values="Select"><b>   Select  </b></option>
+                                <option value="Email"></option>
+                                <option value="WhatsApp"></option>
+                                <option value="Phone"></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label">Parent Group</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-transparent">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list-ul" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m-3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2" />
+                                </svg>
+                            </span>
+                            <select class="form-select" id="PreferredContactMethod" ng-model="">
+                                <option values="Select"><b>   Select  </b></option>
+                                <option value="Email"></option>
+                                <option value="WhatsApp"></option>
+                                <option value="Phone"></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label">Geographical Territory</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-transparent">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list-ul" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m-3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2" />
+                                </svg>
+                            </span>
+                            <select class="form-select" id="PreferredContactMethod" ng-model="">
+                                <option values="Select"><b>   Select  </b></option>
+                                <option value="Email"></option>
+                                <option value="WhatsApp"></option>
+                                <option value="Phone"></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label">Customer Name</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-transparent"><i class='bx bxs-user'></i></span>
+                            <input type="text" class="form-control border-start-0" ng-model="" id="" placeholder="" />
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <label class="form-label">Customer Name</label>
+                        <div class="input-group">
+                            <button type="submit" class="btn btn-dark px-5" ng-click="">verify</button>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label">Short Name</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-transparent"><i class='bx bxs-user'></i></span>
+                            <input type="text" class="form-control border-start-0" ng-model="" id="" placeholder="" />
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-4">
+                        <label class="form-label">Address Line 1</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-transparent">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16">
+                                    <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z" />
+                                    <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243z" />
+                                </svg>
+                            </span>
+                            <input type="text" class="form-control border-start-0" ng-model="" id="" placeholder="" />
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-4">
+                        <label class="form-label">Address Line 2</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-transparent">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16">
+                                    <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z" />
+                                    <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243z" />
+                                </svg>
+                            </span>
+                            <input type="text" class="form-control border-start-0" ng-model="" id="" placeholder="" />
+                        </div>
+                    </div>
+                    <div class="col-4 col-md-4">
+                        <label class="form-label">Country</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-transparent">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list-ul" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m-3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2" />
+                                </svg>
+                            </span>
+                            <select class="form-select" id="PreferredContactMethod" ng-model="">
+                                <option values="Select"><b>   Select  </b></option>
+                                <option value="Email"></option>
+                                <option value="WhatsApp"></option>
+                                <option value="Phone"></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-4 col-md-4">
+                        <label class="form-label">City</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-transparent">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list-ul" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m-3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2" />
+                                </svg>
+                            </span>
+                            <select class="form-select" id="PreferredContactMethod" ng-model="">
+                                <option values="Select"><b>   Select  </b></option>
+                                <option value="Email"></option>
+                                <option value="WhatsApp"></option>
+                                <option value="Phone"></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-4 col-md-4">
+                        <label class="form-label">Web Address</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-transparent">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-browser-edge" viewBox="0 0 16 16">
+                                    <path d="M9.482 9.341c-.069.062-.17.153-.17.309 0 .162.107.325.3.456.877.613 2.521.54 2.592.538h.002c.667 0 1.32-.18 1.894-.519A3.838 3.838 0 0 0 16 6.819c.018-1.316-.44-2.218-.666-2.664l-.04-.08C13.963 1.487 11.106 0 8 0A8 8 0 0 0 .473 5.29C1.488 4.048 3.183 3.262 5 3.262c2.83 0 5.01 1.885 5.01 4.797h-.004v.002c0 .338-.168.832-.487 1.244l.006-.006a.594.594 0 0 1-.043.041Z" />
+                                    <path d="M.01 7.753a8.137 8.137 0 0 0 .753 3.641 8 8 0 0 0 6.495 4.564 5.21 5.21 0 0 1-.785-.377h-.01l-.12-.075a5.45 5.45 0 0 1-1.56-1.463A5.543 5.543 0 0 1 6.81 5.8l.01-.004.025-.012c.208-.098.62-.292 1.167-.285.129.001.257.012.384.033a4.037 4.037 0 0 0-.993-.698l-.01-.005C6.348 4.282 5.199 4.263 5 4.263c-2.44 0-4.824 1.634-4.99 3.49Zm10.263 7.912c.088-.027.177-.054.265-.084-.102.032-.204.06-.307.086z" />
+                                    <path d="M10.228 15.667a5.21 5.21 0 0 0 .303-.086l.082-.025a8.019 8.019 0 0 0 4.162-3.3.25.25 0 0 0-.331-.35c-.215.112-.436.21-.663.294a6.367 6.367 0 0 1-2.243.4c-2.957 0-5.532-2.031-5.532-4.644.002-.135.017-.268.046-.399a4.543 4.543 0 0 0-.46 5.898l.003.005c.315.441.707.821 1.158 1.121h.003l.144.09c.877.55 1.721 1.078 3.328.996Z" />
+                                </svg>
+                            </span>
+                            <input type="text" class="form-control border-start-0" ng-model="" id="Website" placeholder="" />
+                        </div>
+                    </div>
+                    <div class="col-4 col-md-4">
+                        <label class="form-label">Phone (landline)</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-transparent">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-phone-vibrate-fill" viewBox="0 0 16 16">
+                                    <path d="M4 4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm5 7a1 1 0 1 0-2 0 1 1 0 0 0 2 0M1.807 4.734a.5.5 0 1 0-.884-.468A7.967 7.967 0 0 0 0 8c0 1.347.334 2.618.923 3.734a.5.5 0 1 0 .884-.468A6.967 6.967 0 0 1 1 8c0-1.18.292-2.292.807-3.266zm13.27-.468a.5.5 0 0 0-.884.468C14.708 5.708 15 6.819 15 8c0 1.18-.292 2.292-.807 3.266a.5.5 0 0 0 .884.468A7.967 7.967 0 0 0 16 8a7.967 7.967 0 0 0-.923-3.734M3.34 6.182a.5.5 0 1 0-.93-.364A5.986 5.986 0 0 0 2 8c0 .769.145 1.505.41 2.182a.5.5 0 1 0 .93-.364A4.986 4.986 0 0 1 3 8c0-.642.12-1.255.34-1.818m10.25-.364a.5.5 0 0 0-.93.364c.22.563.34 1.176.34 1.818 0 .642-.12 1.255-.34 1.818a.5.5 0 0 0 .93.364C13.856 9.505 14 8.769 14 8c0-.769-.145-1.505-.41-2.182z" />
+                                </svg>
+                            </span>
+                            <input type="text" class="form-control border-start-0" ng-model="" id="Website" placeholder="" />
+                        </div>
+                    </div>
+                    <div class="col-4 col-md-4">
+                        <label class="form-label">Fax</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-transparent">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-printer-fill" viewBox="0 0 16 16">
+                                    <path d="M5 1a2 2 0 0 0-2 2v1h10V3a2 2 0 0 0-2-2zm6 8H5a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1" />
+                                    <path d="M0 7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-1v-2a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v2H2a2 2 0 0 1-2-2zm2.5 1a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1" />
+                                </svg>
+                            </span>
+                            <input type="text" class="form-control border-start-0" ng-model="" id="Website" placeholder="" />
+                        </div>
+                    </div>
+                    <div class="col-4 col-md-4">
+                        <label class="form-label">Zip Code</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-transparent">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-upc" viewBox="0 0 16 16">
+                                    <path d="M3 4.5a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0zm2 0a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0zm2 0a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0zm2 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3 0a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0z" />
+                                </svg>
+                            </span>
+                            <input type="text" class="form-control border-start-0" ng-model="" id="Website" placeholder="" />
+                        </div>
+                    </div>
+                    <div class="card-title d-flex align-items-center">
+                        <h3 class="mb-0 text-dark"><b>Industry Type</b></h3>
+                    </div>
+                    <hr>
+                    <div class="col-3">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="gridCheck2">
+                            <label class="form-check-label" for="gridCheck2"><b>RETAIL</b></label>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="gridCheck2">
+                            <label class="form-check-label" for="gridCheck2"><b>WHOLESALE</b></label>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="gridCheck2">
+                            <label class="form-check-label" for="gridCheck2"><b>WAREHOUS</b></label>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="gridCheck2">
+                            <label class="form-check-label" for="gridCheck2"><b>IMPORTER</b></label>
+                        </div>
+                    </div>
+                   @*  <div class="col-4 col-md-4">
+                        <label class="form-label">Zip Code</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-transparent">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-browser-edge" viewBox="0 0 16 16">
+                                    <path d="M9.482 9.341c-.069.062-.17.153-.17.309 0 .162.107.325.3.456.877.613 2.521.54 2.592.538h.002c.667 0 1.32-.18 1.894-.519A3.838 3.838 0 0 0 16 6.819c.018-1.316-.44-2.218-.666-2.664l-.04-.08C13.963 1.487 11.106 0 8 0A8 8 0 0 0 .473 5.29C1.488 4.048 3.183 3.262 5 3.262c2.83 0 5.01 1.885 5.01 4.797h-.004v.002c0 .338-.168.832-.487 1.244l.006-.006a.594.594 0 0 1-.043.041Z" />
+                                    <path d="M.01 7.753a8.137 8.137 0 0 0 .753 3.641 8 8 0 0 0 6.495 4.564 5.21 5.21 0 0 1-.785-.377h-.01l-.12-.075a5.45 5.45 0 0 1-1.56-1.463A5.543 5.543 0 0 1 6.81 5.8l.01-.004.025-.012c.208-.098.62-.292 1.167-.285.129.001.257.012.384.033a4.037 4.037 0 0 0-.993-.698l-.01-.005C6.348 4.282 5.199 4.263 5 4.263c-2.44 0-4.824 1.634-4.99 3.49Zm10.263 7.912c.088-.027.177-.054.265-.084-.102.032-.204.06-.307.086z" />
+                                    <path d="M10.228 15.667a5.21 5.21 0 0 0 .303-.086l.082-.025a8.019 8.019 0 0 0 4.162-3.3.25.25 0 0 0-.331-.35c-.215.112-.436.21-.663.294a6.367 6.367 0 0 1-2.243.4c-2.957 0-5.532-2.031-5.532-4.644.002-.135.017-.268.046-.399a4.543 4.543 0 0 0-.46 5.898l.003.005c.315.441.707.821 1.158 1.121h.003l.144.09c.877.55 1.721 1.078 3.328.996Z" />
+                                </svg>
+                            </span>
+                            <input type="text" class="form-control border-start-0" ng-model="" id="Website" placeholder="" />
+                        </div>
+                    </div> *@
+                    <div class="card-title d-flex align-items-center">
+                        <h3 class="mb-0 text-dark"><b>Contact Information</b></h3>
+                    </div>
+                    <hr>
+                    <div class="col-4 col-md-4">
+                        <label class="form-label">Contact Type</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-transparent">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list-ul" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m-3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2" />
+                                </svg>
+                            </span>
+                            <select class="form-select" id="PreferredContactMethod" ng-model="">
+                                <option values="Select"><b>   Select  </b></option>
+                                <option value="Email"></option>
+                                <option value="WhatsApp"></option>
+                                <option value="Phone"></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-4 col-md-4">
+                        <label class="form-label">Department</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-transparent">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-hospital" viewBox="0 0 16 16">
+                                    <path d="M8.5 5.034v1.1l.953-.55.5.867L9 7l.953.55-.5.866-.953-.55v1.1h-1v-1.1l-.953.55-.5-.866L7 7l-.953-.55.5-.866.953.55v-1.1h1ZM13.25 9a.25.25 0 0 0-.25.25v.5c0 .138.112.25.25.25h.5a.25.25 0 0 0 .25-.25v-.5a.25.25 0 0 0-.25-.25zM13 11.25a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25zm.25 1.75a.25.25 0 0 0-.25.25v.5c0 .138.112.25.25.25h.5a.25.25 0 0 0 .25-.25v-.5a.25.25 0 0 0-.25-.25zm-11-4a.25.25 0 0 0-.25.25v.5c0 .138.112.25.25.25h.5A.25.25 0 0 0 3 9.75v-.5A.25.25 0 0 0 2.75 9zm0 2a.25.25 0 0 0-.25.25v.5c0 .138.112.25.25.25h.5a.25.25 0 0 0 .25-.25v-.5a.25.25 0 0 0-.25-.25zM2 13.25a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25z" />
+                                    <path d="M5 1a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v1a1 1 0 0 1 1 1v4h3a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h3V3a1 1 0 0 1 1-1zm2 14h2v-3H7zm3 0h1V3H5v12h1v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1zm0-14H6v1h4zm2 7v7h3V8zm-8 7V8H1v7z" />
+                                </svg>
+                            </span>
+                            <input type="text" class="form-control border-start-0" ng-model="" id="Website" placeholder="" />
+                        </div>
+                    </div>
+                    <div class="col-4 col-md-4">
+                        <label class="form-label">Name</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-transparent"><i class='bx bxs-user'></i></span>
+                            <input type="text" class="form-control border-start-0" ng-model="" id="Website" placeholder="" />
+                        </div>
+                    </div>
+                    <div class="col-4 col-md-4">
+                        <label class="form-label">Job Title</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-transparent">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-browser-edge" viewBox="0 0 16 16">
+                                    <path d="M9.482 9.341c-.069.062-.17.153-.17.309 0 .162.107.325.3.456.877.613 2.521.54 2.592.538h.002c.667 0 1.32-.18 1.894-.519A3.838 3.838 0 0 0 16 6.819c.018-1.316-.44-2.218-.666-2.664l-.04-.08C13.963 1.487 11.106 0 8 0A8 8 0 0 0 .473 5.29C1.488 4.048 3.183 3.262 5 3.262c2.83 0 5.01 1.885 5.01 4.797h-.004v.002c0 .338-.168.832-.487 1.244l.006-.006a.594.594 0 0 1-.043.041Z" />
+                                    <path d="M.01 7.753a8.137 8.137 0 0 0 .753 3.641 8 8 0 0 0 6.495 4.564 5.21 5.21 0 0 1-.785-.377h-.01l-.12-.075a5.45 5.45 0 0 1-1.56-1.463A5.543 5.543 0 0 1 6.81 5.8l.01-.004.025-.012c.208-.098.62-.292 1.167-.285.129.001.257.012.384.033a4.037 4.037 0 0 0-.993-.698l-.01-.005C6.348 4.282 5.199 4.263 5 4.263c-2.44 0-4.824 1.634-4.99 3.49Zm10.263 7.912c.088-.027.177-.054.265-.084-.102.032-.204.06-.307.086z" />
+                                    <path d="M10.228 15.667a5.21 5.21 0 0 0 .303-.086l.082-.025a8.019 8.019 0 0 0 4.162-3.3.25.25 0 0 0-.331-.35c-.215.112-.436.21-.663.294a6.367 6.367 0 0 1-2.243.4c-2.957 0-5.532-2.031-5.532-4.644.002-.135.017-.268.046-.399a4.543 4.543 0 0 0-.46 5.898l.003.005c.315.441.707.821 1.158 1.121h.003l.144.09c.877.55 1.721 1.078 3.328.996Z" />
+                                </svg>
+                            </span>
+                            <input type="text" class="form-control border-start-0" ng-model="" id="Website" placeholder="" />
+                        </div>
+                    </div>
+                    <div class="col-4 col-md-4">
+                        <label class="form-label">Mobile No</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-transparent">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-fill" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
+                                </svg>
+                            </span>
+                            <input type="text" class="form-control border-start-0" ng-model="" id="Website" placeholder="" />
+                        </div>
+                    </div>
+                    <div class="col-4 col-md-4">
+                        <label class="form-label">Email</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-transparent">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope-check" viewBox="0 0 16 16">
+                                    <path d="M2 2a2 2 0 0 0-2 2v8.01A2 2 0 0 0 2 14h5.5a.5.5 0 0 0 0-1H2a1 1 0 0 1-.966-.741l5.64-3.471L8 9.583l7-4.2V8.5a.5.5 0 0 0 1 0V4a2 2 0 0 0-2-2zm3.708 6.208L1 11.105V5.383zM1 4.217V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v.217l-7 4.2z" />
+                                    <path d="M16 12.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0m-1.993-1.679a.5.5 0 0 0-.686.172l-1.17 1.95-.547-.547a.5.5 0 0 0-.708.708l.774.773a.75.75 0 0 0 1.174-.144l1.335-2.226a.5.5 0 0 0-.172-.686Z" />
+                                </svg>
+                            </span>
+                            <input type="text" class="form-control border-start-0" ng-model="" id="Website" placeholder="" />
+                        </div>
+                    </div>
+                    <div class="col-9">
+                        @*  <a href="#" class="Clearform" ng-click="linkClearform()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2z" />
+                        <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466" />
+                        </svg>Clear form
+                        </a> *@
+                    </div>
+                    <div class="col-3">
+                        <button type="submit" class="btn btn-dark px-5" ng-click="">Register</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
