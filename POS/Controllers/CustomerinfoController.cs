@@ -8,5 +8,9 @@ namespace POS.Controllers
         {
             return View();
         }
+        public IActionResult CustomerDetails()
+        {
+            return View();
+        }
     }
 }
