@@ -9,7 +9,7 @@ namespace DataBaseLayer
         {
             try
             {
-                SqlConnection con = new SqlConnection("Data Source=(local);Initial Catalog=POS_DB;Persist Security Info=True;User ID=sa;Password=pwd;Encrypt=False");
+                SqlConnection con = new SqlConnection(HelperClass.ConnectionStr);
                 con.Open();
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con;
