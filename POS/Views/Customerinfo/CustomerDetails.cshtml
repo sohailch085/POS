@@ -39,7 +39,7 @@
     }
 
 </style>
-<div class="page-wrapper" style="" ng-controller="controllerCustomerInfoDetails">
+<div class="page-wrapper" style="" ng-controller="CustomerInfoDetailscontroller">
     <div class="page-content">
         <div class="card border-top border-0 border-4 border-dark">
             <div class="card-body p-5">
@@ -55,13 +55,9 @@
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list-ul" viewBox="0 0 16 16">
                                     <path fill-rule="evenodd" d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m-3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2" />
                                 </svg>
-                            </span>
-                            @* <select select2 style="width:100%" ng-options="bn.SevenName for bn in banks track by bn.Sevencode" id="payfrom" ng-model="Payfrom" ng-required="true" ng-change="payfromchange();"><option value="" selected disabled>-- Select --</option></select> *@
-                            <select class="form-select" id="customerTypeSelect" ng-options="customer.CustomerType for customer in CustomerType track by customer.CustomerType">
-                                <option value="" selected disabled>--Select--</option>
+                            </span>                            
+                            <select class="form-select" id="customerTypeSelect" ng-model="selectedCustomerType" ng-options="option.value as option.label disable when option.disabled for option in htmlOptions">
                             </select>
-
-
                         </div>
                     </div>
                     <div class="col-md-4">
@@ -103,14 +99,6 @@
                             <input type="text" class="form-control border-start-0" ng-model="" id="" placeholder="" />
                         </div>
                     </div>
-                    @*  <div class="col-md-2">
-                    <label class="form-label">Customer Name</label>
-                    <div class="input-group">
-                    <button type="submit" class="btn btn-dark px-5" ng-click="">verify</button>
-                    </div>
-                    </div>
-                    <div class="col-md-2">
-                    </div> *@
                     <div class="col-md-4">
                         <label class="form-label">Short Name</label>
                         <div class="input-group">
@@ -353,4 +341,3 @@
         </div>
     </div>
 </div>
-<script src="~/CutomJquery/CustomerDetails.js"></script>

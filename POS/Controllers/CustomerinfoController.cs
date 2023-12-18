@@ -8,8 +8,6 @@ namespace POS.Controllers
         public IActionResult CustomerInfoIndex()
         {
             return View(); 
-
-
         }
         public IActionResult CustomerDetails()
         {

@@ -23,7 +23,7 @@
 
 
 var myapp = angular.module('myapp', []);
-myapp.controller('controllerCustomerInfo', function ($scope, $http, $filter) {
+myapp.controller('CustomerInfocontroller', function ($scope, $http, $filter) {
     //$scope.CustomerType = [];
     //debugger;
     //$scope.GetCustomerType = function () {
