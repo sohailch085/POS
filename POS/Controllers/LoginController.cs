@@ -1,17 +1,21 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
-using CommonLayer;
+using Common;
 using System.Net.Http;
 using Microsoft.AspNetCore.Http.Metadata;
+using DataBaseLayer;
+using System.Data;
 
 namespace POS.Controllers
 {
     public class LoginController : Controller
     {
-
+        public IActionResult Login()
+        {
+            return View();
+        }
         public IActionResult CompanySignUp()
         {
-           
             return View();
         }
         [HttpPost]
@@ -37,5 +41,40 @@ namespace POS.Controllers
             dBConnection.AddCompanySignup(companySignup);
             return Json("");
         }
+        //[HttpPost]
+        //public JsonResult LoginVerify([FromForm] UserLoginModel model)
+        //{
+        //    if (model == null || model.lstLogin == null || model.lstLogin.Count < 0)
+        //        return Json("404");
+        //    DBConnection dbConnection = new DBConnection();
+        //    Users users = new Users();
+        //    foreach (var item in model.lstLogin) 
+        //    {
+        //        users.Email = item.Email;
+        //        users.PasswordHash = item.PasswordHash;
+        //    }
+        //    var response=GetAllDropDownFill.DataTableToJSONWithJSONNet(dbConnection.VerifyLogin(users));
+        //    return Json(response);
+        //}
+        [HttpPost]
+        public JsonResult LoginVerify( string Email, string Password)
+        {
+            if (Email == null || Password == null)
+                return Json("404");
+
+            var responseList = new List<object>();
+            DBConnection dbConnection = new DBConnection();
+            DataTable dt = new DataTable();
+            dt = dbConnection.VerifyLogin(Email.ToString(), Password.ToString());
+            if (Email == dt.Rows[0]["Email"].ToString() && Password == dt.Rows[0]["PasswordHash"].ToString())
+            {
+                 return Json("true");
+            }
+            //var response = GetAllDropDownFill.DataTableToJSONWithJSONNet();
+            //responseList.Add(response);
+
+            return Json("");
+        }
+
     }
 }

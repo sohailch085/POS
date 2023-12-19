@@ -65,24 +65,6 @@ myapp.controller('CustomerInfoDetailscontroller', function ($scope, $http, $filt
             }
         });
     };
-    $scope.GetCountries = function () {
-        $http.get("/Customerinfo/GetCountries", {
-            headers: { "Content-Type": "application/json" }
-        }).then(function (response) {
-            debugger;
-            console.log(response);
-            $scope.Countries = JSON.parse(response.data);
-            $scope.htmlCountries = [{ value: "", label: "--Select--", disabled: true, selected: true }];
-            for (var i = 0; i < $scope.Countries.length; i++) {
-                var uppercaseCountryName = $scope.Countries[i].CountryName.toUpperCase();
-                $scope.htmlCountries.push({
-                    value: $scope.Countries[i].CountryID,
-                    label: uppercaseCountryName,
-                    disabled: false
-                });
-            }
-        });
-    };
     $scope.GetContactType = function () {
         $http.get("/Customerinfo/GetContactType", {
             headers: { "Content-Type": "application/json" }
@@ -101,9 +83,49 @@ myapp.controller('CustomerInfoDetailscontroller', function ($scope, $http, $filt
             }
         });
     };
-    $scope.GetCity = function () {
-        $http.get("/Customerinfo/GetCities", {
+    $scope.GetCountries = function () {
+        $http.get("/Customerinfo/GetCountries", {
             headers: { "Content-Type": "application/json" }
+        }).then(function (response) {
+            debugger;
+            console.log(response);
+            $scope.Countries = JSON.parse(response.data);
+            $scope.htmlCountries = [{ value: "", label: "--Select--", disabled: true, selected: true }];
+            for (var i = 0; i < $scope.Countries.length; i++) {
+                var uppercaseCountryName = $scope.Countries[i].CountryName.toUpperCase();
+                $scope.htmlCountries.push({
+                    value: $scope.Countries[i].CountryID,
+                    label: uppercaseCountryName,
+                    disabled: false
+                });
+            }
+        });
+    }; 
+    //$scope.GetCity = function () {
+    //    $http.get("/Customerinfo/GetCities", {
+    //        headers: { "Content-Type": "application/json" }
+    //    }).then(function (response) {
+    //        debugger;
+    //        console.log(response);
+    //        $scope.City = JSON.parse(response.data);
+    //        $scope.htmlCity = [{ value: "", label: "--Select--", disabled: true, selected: true }];
+    //        for (var i = 0; i < $scope.City.length; i++) {
+    //            var uppercaseCity = $scope.City[i].city.toUpperCase();
+    //            $scope.htmlCity.push({
+    //                value: $scope.City[i].id,
+    //                label: uppercaseCity,
+    //                disabled: false
+    //            });
+    //        }
+    //    });
+    //};
+    $scope.GetCity = function () {
+        var countryId = $scope.CountryId;
+        var selectedCountryID = $scope.selectedCountries; // Assuming this is the selected value from the dropdown
+
+        $http.get("/Customerinfo/GetCities", {
+            headers: { "Content-Type": "application/json" },
+            params: { CountryID: selectedCountryID, UserID: UserID }  // Pass selectedCustomerType as a query parameter
         }).then(function (response) {
             debugger;
             console.log(response);
@@ -119,11 +141,12 @@ myapp.controller('CustomerInfoDetailscontroller', function ($scope, $http, $filt
             }
         });
     };
+
     $scope.GetCustomerType();
     $scope.GetParentGroup();
     $scope.GetGeographicalTerritory();
-    $scope.GetCountries();
     $scope.GetContactType();
+    $scope.GetCountries();    
     $scope.GetCity()
 
 });

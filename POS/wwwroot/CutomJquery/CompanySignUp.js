@@ -29,7 +29,6 @@ angular.module('appLogin', [])
                 (Country !== "" && Country !== "undefined") &&
                 (FirstName !== "" && FirstName !== "undefined") &&
                 (LastName !== "" && LastName !== "undefined")) {
-
                 $scope.Companysignuparry = {
                     CompanyName: $scope.CompanyName,
                     Country: $scope.Country,
@@ -45,7 +44,7 @@ angular.module('appLogin', [])
                 $scope.Companysignuplist.push($scope.Companysignuparry);
                 $scope.linkClearform();
                 $http({
-                    method: "POST",
+                    method: "GET",
                     url: "Login/CompanySignUpSave",
                     datatype: 'json',
                     header: { "Content-Type": "application/json" },                   

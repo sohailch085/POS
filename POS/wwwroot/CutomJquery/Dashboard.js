@@ -1,4 +1,4 @@
-﻿/*angular.module('myapp', ['chart.js']);*/
+﻿angular.module('myapp', ['chart.js']);
 angular.module('myapp')
     .controller('MyController', function ($scope, $timeout) {
         //$scope.labels = ["January", "February", "March", "April", "May", "June", "July", "August"];
@@ -19,6 +19,6 @@ angular.module('myapp')
         //    ];
         //}, 3000);
     });
-angular.element(document).ready(function () {
-    angular.bootstrap(document, ['myapp']);
-});
+//angular.element(document).ready(function () {
+//    angular.bootstrap(document, ['myapp']);
+//});
