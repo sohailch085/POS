@@ -1,4 +1,4 @@
-﻿using CommonLayer;
+﻿using Common;
 using Microsoft.Data.SqlClient;
 
 namespace DataBaseLayer
