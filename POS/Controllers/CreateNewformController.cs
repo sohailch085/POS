@@ -2,9 +2,9 @@
 
 namespace POS.Controllers
 {
-    public class HomeController : Controller
+    public class CreateNewformController : Controller
     {
-        public IActionResult Index()
+        public IActionResult CreateNewformIndex()
         {
             return View();
         }

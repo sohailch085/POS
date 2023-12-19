@@ -1,13 +1,17 @@
-﻿var myapp = angular.module('myapp', []);
-myapp.controller('controllerCustomerInfo', function ($scope, $http, $filter) {
+﻿
+var myapp = angular.module('myapp', []);
+myapp.controller('CustomerInfocontroller', function ($scope, $http, $filter) {
+    //$scope.CustomerType = [];
+    //debugger;
+    //$scope.GetCustomerType = function () {
+    //    debugger;
+    //    $http.get(window.location.origin + "/CustomerDetails/GetCustomerType", {
+    //        headers: { "Content-Type": "application/json" }
+    //    }).then(function (response) {
+    //        console.log(response);
+    //        $scope.CustomerType = JSON.parse(response.data);
+    //    });
+    //};
 
-    $('#example').DataTable();
-    var table = $('#example2').DataTable({
-        lengthChange: false,
-        buttons: ['copy', 'excel', 'pdf', 'print']
-
-         table.buttons().container()
-            .appendTo('#example2_wrapper .col-md-6:eq(0)');
-    });
-})
-//'willcrisis.angular-select2'
+    //$scope.GetCustomerType();
+});

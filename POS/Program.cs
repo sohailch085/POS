@@ -18,7 +18,7 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Customerinfo}/{action=CustomerInfoIndex}/{id?}");
 
 //app.UseEndpoints(endpoints =>
 //{
