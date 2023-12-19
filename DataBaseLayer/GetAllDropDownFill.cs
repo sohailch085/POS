@@ -29,6 +29,12 @@ namespace DataBaseLayer
                 case "GeographicalTerritory":
                     ProcedureName = "Sp_Get_GeographicalTerritory"; 
                     break;
+                case "Countries":
+                    ProcedureName = "Sp_Get_Countries";
+                    break;
+                case "Cities":
+                    ProcedureName = "Sp_Get_Cities";
+                    break;
                 default:
                     break;
             }

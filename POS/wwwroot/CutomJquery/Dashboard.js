@@ -1,6 +1,4 @@
-﻿angular.module('myapp', ['chart.js']);
-
-
+﻿/*angular.module('myapp', ['chart.js']);*/
 angular.module('myapp')
     .controller('MyController', function ($scope, $timeout) {
         //$scope.labels = ["January", "February", "March", "April", "May", "June", "July", "August"];
