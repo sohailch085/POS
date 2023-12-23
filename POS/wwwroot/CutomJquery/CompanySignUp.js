@@ -44,7 +44,7 @@ angular.module('appLogin', [])
                 $scope.Companysignuplist.push($scope.Companysignuparry);
                 $scope.linkClearform();
                 $http({
-                    method: "GET",
+                    method: "POST",
                     url: "Login/CompanySignUpSave",
                     datatype: 'json',
                     header: { "Content-Type": "application/json" },                   
