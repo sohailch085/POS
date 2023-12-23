@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
 using Common;
+//using System.Web.Mvc;
 using System.Net.Http;
 using Microsoft.AspNetCore.Http.Metadata;
 using DataBaseLayer;
@@ -18,6 +19,10 @@ namespace POS.Controllers
         {
             return View();
         }
+        //public IActionResult Approval()
+        //{
+        //    return View();
+        //}
         [HttpPost]
         public JsonResult CompanySignUpSave([FromBody] CompanysignupModel model)
         {
@@ -41,25 +46,10 @@ namespace POS.Controllers
             dBConnection.AddCompanySignup(companySignup);
             return Json("");
         }
-        //[HttpPost]
-        //public JsonResult LoginVerify([FromForm] UserLoginModel model)
-        //{
-        //    if (model == null || model.lstLogin == null || model.lstLogin.Count < 0)
-        //        return Json("404");
-        //    DBConnection dbConnection = new DBConnection();
-        //    Users users = new Users();
-        //    foreach (var item in model.lstLogin) 
-        //    {
-        //        users.Email = item.Email;
-        //        users.PasswordHash = item.PasswordHash;
-        //    }
-        //    var response=GetAllDropDownFill.DataTableToJSONWithJSONNet(dbConnection.VerifyLogin(users));
-        //    return Json(response);
-        //}
         [HttpPost]
         public JsonResult LoginVerify( string Email, string Password)
         {
-            if (Email == null || Password == null)
+            if (Email == null || Password == null || Email== "undefined"||Password== "undefined")
                 return Json("404");
 
             var responseList = new List<object>();
@@ -68,7 +58,9 @@ namespace POS.Controllers
             dt = dbConnection.VerifyLogin(Email.ToString(), Password.ToString());
             if (Email == dt.Rows[0]["Email"].ToString() && Password == dt.Rows[0]["PasswordHash"].ToString())
             {
-                 return Json("true");
+                HttpContext.Session.SetString("Email", dt.Rows[0]["Email"].ToString());
+                HttpContext.Session.SetString("UserID", dt.Rows[0]["UserId"].ToString());
+                return Json("true");
             }
             //var response = GetAllDropDownFill.DataTableToJSONWithJSONNet();
             //responseList.Add(response);

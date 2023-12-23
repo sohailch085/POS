@@ -43,8 +43,8 @@ angular.module('appLogin', [])
                     //    }
                     //});
                     //console.log(item);
-                    if (true == response.data) {
-                        location.href = "/Home/Index";
+                    if (response.data == "true") {
+                        window.location.href= "../Home/Index";
                     }
                 }).finally(function () {
 

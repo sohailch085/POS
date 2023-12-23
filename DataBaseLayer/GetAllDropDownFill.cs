@@ -8,7 +8,7 @@ namespace DataBaseLayer
 {
     public static class GetAllDropDownFill
     {
-        public static string Get_DropdownValues(string Name,string UserID,string CountryID)
+        public static string Get_DropdownValues(string Name)
         {
             string NameofDropdown = Name;
             string ProcedureName = "";
@@ -33,7 +33,7 @@ namespace DataBaseLayer
                     ProcedureName = "Sp_Get_Countries";
                     break;
                 case "Cities":
-                    ProcedureName = "EXEC Sp_Get_Cities @CountryID =" + CountryID+",@UserID="+ UserID; 
+                    ProcedureName = "Sp_Get_Cities"; 
                     break;
                 default:
                     break;

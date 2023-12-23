@@ -2,11 +2,13 @@
 using DataBaseLayer;
 using Microsoft.Data.SqlClient;
 using System.Data;
+using System.Data.SqlTypes;
 
 namespace POS
 {
     public class DBConnection
     {
+        
         SqlConnection con;
 
         public DataTable ReturnDataTable(string query)
@@ -57,7 +59,18 @@ namespace POS
                 throw ex;
             }
         }
-
+        public DataTable GetCustomerInfo() 
+        {
+            DataTable dt = new DataTable();
+            string query = "EXEC Sp_Get_CustomerInfo";
+            return dt = ReturnDataTable(query);
+        }
+        public DataTable GetFilterData(string Id)
+        {
+            DataTable dt = new DataTable();
+            string query = "EXEC Sp_Get_CustomerFilter @CustomerID="+ Id;
+            return dt = ReturnDataTable(query);
+        }
         public void AddCompanySignup(CompanySignup companySignup)
         {
             try
@@ -79,6 +92,71 @@ namespace POS
                 cmd.Parameters.AddWithValue("@Address", companySignup.Address);
                 cmd.Parameters.AddWithValue("@BusinessDescription", companySignup.BusinessDescription);
                 cmd.Parameters.AddWithValue("@RequestDate", DateTime.Now);
+                cmd.ExecuteNonQuery();
+                con.Close();
+                cmd.Dispose();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
+        public void AddCustomerDetailsSave(CustomerInfo CustomerDetailsSave)
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(HelperClass.ConnectionStr);
+                con.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = con;
+                cmd.CommandText = "Sp_CustomerInfo_InsertOrUpdate";
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@CustomerID", CustomerDetailsSave.CustomerID);
+                cmd.Parameters.AddWithValue("@CustomerName", CustomerDetailsSave.CustomerName);
+                cmd.Parameters.AddWithValue("@ShortName", CustomerDetailsSave.ShortName);
+                cmd.Parameters.AddWithValue("@CustomerTypeID", CustomerDetailsSave.CustomerTypeID);
+                cmd.Parameters.AddWithValue("@CustomerTypeName", CustomerDetailsSave.CustomerTypeName);
+                cmd.Parameters.AddWithValue("@ParentGroupID", CustomerDetailsSave.ParentGroupID);
+                cmd.Parameters.AddWithValue("@ParentGroupName", CustomerDetailsSave.ParentGroupName);
+                cmd.Parameters.AddWithValue("@GeographicalTerritoryID", CustomerDetailsSave.GeographicalTerritoryID);
+                cmd.Parameters.AddWithValue("@GeographicalTerritoryName", CustomerDetailsSave.GeographicalTerritoryName);
+                cmd.Parameters.AddWithValue("@CountryID", CustomerDetailsSave.CountryID);
+                cmd.Parameters.AddWithValue("@CountryName", CustomerDetailsSave.CountryName);
+                cmd.Parameters.AddWithValue("@CityID", CustomerDetailsSave.CityID);
+                cmd.Parameters.AddWithValue("@CityName", CustomerDetailsSave.CityName);
+                cmd.Parameters.AddWithValue("@WebAddress", CustomerDetailsSave.WebAddress);
+                cmd.Parameters.AddWithValue("@PhoneLandLine", CustomerDetailsSave.PhoneLandLine);
+                cmd.Parameters.AddWithValue("@Fax", CustomerDetailsSave.Fax);
+                cmd.Parameters.AddWithValue("@PreferredContactMethod", CustomerDetailsSave.PreferredContactMethod);
+                cmd.Parameters.AddWithValue("@Retail", CustomerDetailsSave.Retail);
+                cmd.Parameters.AddWithValue("@WholeSale", CustomerDetailsSave.WholeSale);
+                cmd.Parameters.AddWithValue("@WareHouse", CustomerDetailsSave.WareHouse);
+                cmd.Parameters.AddWithValue("@Importer", CustomerDetailsSave.Importer);
+                cmd.Parameters.AddWithValue("@ContactTypeID", CustomerDetailsSave.ContactTypeID);
+                cmd.Parameters.AddWithValue("@ContactTypeName", CustomerDetailsSave.ContactTypeName);
+                cmd.Parameters.AddWithValue("@Department", CustomerDetailsSave.Department);
+                cmd.Parameters.AddWithValue("@Name", CustomerDetailsSave.Name);
+                cmd.Parameters.AddWithValue("@JobTitle", CustomerDetailsSave.JobTitle);
+                cmd.Parameters.AddWithValue("@MobileNo", CustomerDetailsSave.MobileNo);
+                cmd.Parameters.AddWithValue("@Email", CustomerDetailsSave.Email);
+                cmd.Parameters.AddWithValue("@DocumentFile", new byte[0]);//CustomerDetailsSave.DocumentFile
+                if (CustomerDetailsSave.CustomerID == 0)
+                {
+                    cmd.Parameters.AddWithValue("@CreatedByID", CustomerDetailsSave.CreatedByID);
+                    cmd.Parameters.AddWithValue("@CreatedByDateTime", Convert.ToDateTime(CustomerDetailsSave.CreatedByDateTime));
+                    cmd.Parameters.AddWithValue("@UpdatedByID", DBNull.Value);
+                    cmd.Parameters.AddWithValue("@UpdatedByDateTime", DBNull.Value);
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@CreatedByID", CustomerDetailsSave.CreatedByID);
+                    cmd.Parameters.AddWithValue("@CreatedByDateTime", Convert.ToDateTime(CustomerDetailsSave.CreatedByDateTime));
+                    cmd.Parameters.AddWithValue("@UpdatedByID", CustomerDetailsSave.UpdatedByID);
+                    cmd.Parameters.AddWithValue("@UpdatedByDateTime", Convert.ToDateTime(CustomerDetailsSave.UpdatedByDateTime));
+                    
+                }
                 cmd.ExecuteNonQuery();
                 con.Close();
                 cmd.Dispose();

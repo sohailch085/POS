@@ -39,12 +39,13 @@
     }
 
 </style>
-<div class="page-wrapper" style="" ng-controller="CustomerInfoDetailscontroller">
+<div class="page-wrapper" ng-init="" style="" ng-controller="CustomerInfoDetailscontroller">
     <div class="page-content">
         <div class="card border-top border-0 border-4 border-dark">
             <div class="card-body p-5">
                 <div class="card-title d-flex align-items-center">
                     <h3 class="mb-0 text-dark"><b>Customer Information</b></h3>
+                    <input type="text" class="form-control border-start-0"  ng-model="CustomerID" id="CustomerID" placeholder="" />
                 </div>
                 <hr>
                 <form class="row g-3">
@@ -56,7 +57,7 @@
                                     <path fill-rule="evenodd" d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m-3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2" />
                                 </svg>
                             </span>                            
-                            <select class="form-select" id="customerTypeSelect" ng-model="selectedCustomerType" ng-options="option.value as option.label disable when option.disabled for option in htmlOptions">
+                            <select class="form-select" id="customerTypeSelect" ng-init="selectedCustomerType.label" ng-model="selectedCustomerType" ng-options="option.value as option.Name disable when option.disabled for option in htmlOptions">
                             </select>
                         </div>
                     </div>
@@ -68,7 +69,7 @@
                                     <path fill-rule="evenodd" d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m-3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2" />
                                 </svg>
                             </span>
-                            <select class="form-select" id="ParentGroupSelect" ng-model="selectedParentGroup" ng-options="option.value as option.label disable when option.disabled for option in htmlParentGroup">
+                            <select class="form-select" id="selectedParentGroup" ng-model="selectedParentGroup" ng-options="option.value as option.Name disable when option.disabled for option in htmlParentGroup">
                             </select>
                         </div>
                     </div>
@@ -80,7 +81,7 @@
                                     <path fill-rule="evenodd" d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m-3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2" />
                                 </svg>
                             </span>
-                            <select class="form-select" id="GeographicalTerritorySelect" ng-model="selectedGeographicalTerritory" ng-options="option.value as option.label disable when option.disabled for option in htmlGeographicalTerritory">
+                            <select class="form-select" id="selectedGeographicalTerritory" ng-model="selectedGeographicalTerritory" ng-options="option.value as option.Name disable when option.disabled for option in htmlGeographicalTerritory">
                             </select>
                         </div>
                     </div>
@@ -88,14 +89,14 @@
                         <label class="form-label">Customer Name</label>
                         <div class="input-group">
                             <span class="input-group-text bg-transparent"><i class='bx bxs-user'></i></span>
-                            <input type="text" class="form-control border-start-0" ng-model="" id="" placeholder="" />
+                            <input type="text" class="form-control border-start-0" ng-model="CustomerName" id="CustomerName" placeholder="" />
                         </div>
                     </div>
                     <div class="col-md-4">
                         <label class="form-label">Short Name</label>
                         <div class="input-group">
                             <span class="input-group-text bg-transparent"><i class='bx bxs-user'></i></span>
-                            <input type="text" class="form-control border-start-0" ng-model="" id="" placeholder="" />
+                            <input type="text" class="form-control border-start-0" ng-model="ShortName" id="ShortName" placeholder="" />
                         </div>
                     </div>
                     <div class="col-lg-12 col-md-4">
@@ -107,7 +108,7 @@
                                     <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243z" />
                                 </svg>
                             </span>
-                            <input type="text" class="form-control border-start-0" ng-model="" id="" placeholder="" />
+                            <input type="text" class="form-control border-start-0" ng-model="AddressLine1" id="AddressLine1" placeholder="" />
                         </div>
                     </div>
                     <div class="col-lg-12 col-md-4">
@@ -119,7 +120,7 @@
                                     <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243z" />
                                 </svg>
                             </span>
-                            <input type="text" class="form-control border-start-0" ng-model="" id="" placeholder="" />
+                            <input type="text" class="form-control border-start-0" ng-model="AddressLine2" id="AddressLine2" placeholder="" />
                         </div>
                     </div>
                     <div class="col-4 col-md-4">
@@ -130,7 +131,7 @@
                                     <path fill-rule="evenodd" d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m-3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2" />
                                 </svg>
                             </span>
-                            <select class="form-select" id="CountriesSelect" ng-model="selectedCountries" ng-options="option.value as option.label disable when option.disabled for option in htmlCountries">
+                            <select class="form-select"  id="selectedCountries" ng-click="GetCity()" ng-model="selectedCountries" ng-options="option.value as option.Name disable when option.disabled for option in htmlCountries">
                             </select>
                         </div>
                     </div>
@@ -142,7 +143,7 @@
                                     <path fill-rule="evenodd" d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m-3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2" />
                                 </svg>
                             </span>
-                            <select class="form-select" id="ParentGroupSelect" ng-model="selectedParentGroup" ng-options="option.value as option.label disable when option.disabled for option in htmlCity">
+                            <select class="form-select" id="selectedCity" ng-model="selectedCity" ng-options="option.value as option.Name disable when option.disabled for option in htmlCity">
                             </select>
                         </div>
                     </div>
@@ -156,7 +157,7 @@
                                     <path d="M10.228 15.667a5.21 5.21 0 0 0 .303-.086l.082-.025a8.019 8.019 0 0 0 4.162-3.3.25.25 0 0 0-.331-.35c-.215.112-.436.21-.663.294a6.367 6.367 0 0 1-2.243.4c-2.957 0-5.532-2.031-5.532-4.644.002-.135.017-.268.046-.399a4.543 4.543 0 0 0-.46 5.898l.003.005c.315.441.707.821 1.158 1.121h.003l.144.09c.877.55 1.721 1.078 3.328.996Z" />
                                 </svg>
                             </span>
-                            <input type="text" class="form-control border-start-0" ng-model="" id="Website" placeholder="" />
+                            <input type="text" class="form-control border-start-0" ng-model="WebAddress" id="WebAddress" placeholder="" />
                         </div>
                     </div>
                     <div class="col-4 col-md-4">
@@ -167,7 +168,7 @@
                                     <path d="M4 4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm5 7a1 1 0 1 0-2 0 1 1 0 0 0 2 0M1.807 4.734a.5.5 0 1 0-.884-.468A7.967 7.967 0 0 0 0 8c0 1.347.334 2.618.923 3.734a.5.5 0 1 0 .884-.468A6.967 6.967 0 0 1 1 8c0-1.18.292-2.292.807-3.266zm13.27-.468a.5.5 0 0 0-.884.468C14.708 5.708 15 6.819 15 8c0 1.18-.292 2.292-.807 3.266a.5.5 0 0 0 .884.468A7.967 7.967 0 0 0 16 8a7.967 7.967 0 0 0-.923-3.734M3.34 6.182a.5.5 0 1 0-.93-.364A5.986 5.986 0 0 0 2 8c0 .769.145 1.505.41 2.182a.5.5 0 1 0 .93-.364A4.986 4.986 0 0 1 3 8c0-.642.12-1.255.34-1.818m10.25-.364a.5.5 0 0 0-.93.364c.22.563.34 1.176.34 1.818 0 .642-.12 1.255-.34 1.818a.5.5 0 0 0 .93.364C13.856 9.505 14 8.769 14 8c0-.769-.145-1.505-.41-2.182z" />
                                 </svg>
                             </span>
-                            <input type="text" class="form-control border-start-0" ng-model="" id="Website" placeholder="" />
+                            <input type="text" class="form-control border-start-0" ng-model="PhoneLandline" id="PhoneLandline" placeholder="" />
                         </div>
                     </div>
                     <div class="col-4 col-md-4">
@@ -179,18 +180,24 @@
                                     <path d="M0 7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-1v-2a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v2H2a2 2 0 0 1-2-2zm2.5 1a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1" />
                                 </svg>
                             </span>
-                            <input type="text" class="form-control border-start-0" ng-model="" id="Website" placeholder="" />
+                            <input type="text" class="form-control border-start-0" ng-model="Fax" id="Fax" placeholder="" />
                         </div>
                     </div>
                     <div class="col-4 col-md-4">
-                        <label class="form-label">Zip Code</label>
+                        <label class="form-label">Preferred Contact Method</label>
                         <div class="input-group">
                             <span class="input-group-text bg-transparent">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-upc" viewBox="0 0 16 16">
-                                    <path d="M3 4.5a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0zm2 0a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0zm2 0a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0zm2 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3 0a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0z" />
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-menu-button-wide" viewBox="0 0 16 16">
+                                    <path d="M0 1.5A1.5 1.5 0 0 1 1.5 0h13A1.5 1.5 0 0 1 16 1.5v2A1.5 1.5 0 0 1 14.5 5h-13A1.5 1.5 0 0 1 0 3.5zM1.5 1a.5.5 0 0 0-.5.5v2a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 0-.5-.5z" />
+                                    <path d="M2 2.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5m10.823.323-.396-.396A.25.25 0 0 1 12.604 2h.792a.25.25 0 0 1 .177.427l-.396.396a.25.25 0 0 1-.354 0zM0 8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm1 3v2a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2zm14-1V8a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v2zM2 8.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0 4a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5" />
                                 </svg>
                             </span>
-                            <input type="text" class="form-control border-start-0" ng-model="" id="Website" placeholder="" />
+                            <select class="form-select" id="PreferredContactMethod" ng-model="PreferredContactMethod">
+                                <option></option>
+                                <option value="Email">Email</option>
+                                <option value="WhatsApp">WhatsApp</option>
+                                <option value="Phone">Phone</option>
+                            </select>
                         </div>
                     </div>
                     <div class="card-title d-flex align-items-center" style="font-size: medium !important;">
@@ -199,26 +206,26 @@
                     <hr>
                     <div class="col-3">
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="gridCheck2">
-                            <label class="form-check-label" for="gridCheck2"><b>RETAIL</b></label>
+                            <input class="form-check-input" type="checkbox" ng-model="Retail" id="Retail">
+                            <label class="form-check-label"><b>RETAIL</b></label>
                         </div>
                     </div>
                     <div class="col-3">
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="gridCheck2">
-                            <label class="form-check-label" for="gridCheck2"><b>WHOLESALE</b></label>
+                            <input class="form-check-input" type="checkbox" ng-model="Wholesale" id="Wholesale">
+                            <label class="form-check-label"><b>WHOLESALE</b></label>
                         </div>
                     </div>
                     <div class="col-3">
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="gridCheck2">
-                            <label class="form-check-label" for="gridCheck2"><b>WAREHOUS</b></label>
+                            <input class="form-check-input" type="checkbox" ng-model="Warehouse" id="Warehouse">
+                            <label class="form-check-label"><b>WAREHOUSE</b></label>
                         </div>
                     </div>
                     <div class="col-3">
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="gridCheck2">
-                            <label class="form-check-label" for="gridCheck2"><b>IMPORTER</b></label>
+                            <input class="form-check-input" type="checkbox" ng-model="Importer" id="Importer">
+                            <label class="form-check-label"><b>IMPORTER</b></label>
                         </div>
                     </div>
                     <div class="card-title d-flex align-items-center">
@@ -233,7 +240,7 @@
                                     <path fill-rule="evenodd" d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m-3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2" />
                                 </svg>
                             </span>
-                            <select class="form-select" id="ContactTypeSelect" ng-model="selectedContactType" ng-options="option.value as option.label disable when option.disabled for option in htmlContactType">
+                            <select class="form-select" id="selectedContactType" ng-model="selectedContactType" ng-options="option.value as option.Name disable when option.disabled for option in htmlContactType">
                             </select>
                         </div>
                     </div>
@@ -246,14 +253,14 @@
                                     <path d="M5 1a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v1a1 1 0 0 1 1 1v4h3a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h3V3a1 1 0 0 1 1-1zm2 14h2v-3H7zm3 0h1V3H5v12h1v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1zm0-14H6v1h4zm2 7v7h3V8zm-8 7V8H1v7z" />
                                 </svg>
                             </span>
-                            <input type="text" class="form-control border-start-0" ng-model="" id="Website" placeholder="" />
+                            <input type="text" class="form-control border-start-0" ng-model="Department" id="Department" placeholder="" />
                         </div>
                     </div>
                     <div class="col-4 col-md-4">
                         <label class="form-label">Name</label>
                         <div class="input-group">
                             <span class="input-group-text bg-transparent"><i class='bx bxs-user'></i></span>
-                            <input type="text" class="form-control border-start-0" ng-model="" id="Website" placeholder="" />
+                            <input type="text" class="form-control border-start-0" ng-model="Name" id="Name" placeholder="" />
                         </div>
                     </div>
                     <div class="col-4 col-md-4">
@@ -266,7 +273,7 @@
                                     <path d="M10.228 15.667a5.21 5.21 0 0 0 .303-.086l.082-.025a8.019 8.019 0 0 0 4.162-3.3.25.25 0 0 0-.331-.35c-.215.112-.436.21-.663.294a6.367 6.367 0 0 1-2.243.4c-2.957 0-5.532-2.031-5.532-4.644.002-.135.017-.268.046-.399a4.543 4.543 0 0 0-.46 5.898l.003.005c.315.441.707.821 1.158 1.121h.003l.144.09c.877.55 1.721 1.078 3.328.996Z" />
                                 </svg>
                             </span>
-                            <input type="text" class="form-control border-start-0" ng-model="" id="Website" placeholder="" />
+                            <input type="text" class="form-control border-start-0" ng-model="JobTitle" id="JobTitle" placeholder="" />
                         </div>
                     </div>
                     <div class="col-4 col-md-4">
@@ -277,7 +284,7 @@
                                     <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
                                 </svg>
                             </span>
-                            <input type="text" class="form-control border-start-0" ng-model="" id="Website" placeholder="" />
+                            <input type="text" class="form-control border-start-0" ng-model="MobileNo" id="MobileNo" placeholder="" />
                         </div>
                     </div>
                     <div class="col-4 col-md-4">
@@ -289,19 +296,28 @@
                                     <path d="M16 12.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0m-1.993-1.679a.5.5 0 0 0-.686.172l-1.17 1.95-.547-.547a.5.5 0 0 0-.708.708l.774.773a.75.75 0 0 0 1.174-.144l1.335-2.226a.5.5 0 0 0-.172-.686Z" />
                                 </svg>
                             </span>
-                            <input type="text" class="form-control border-start-0" ng-model="" id="Website" placeholder="" />
+                            <input type="text" class="form-control border-start-0" ng-model="Email" id="Email" placeholder="" />
                         </div>
                     </div>
-                    <div class="col-9">
-                        @*  <a href="#" class="Clearform" ng-click="linkClearform()">
+                   @*  <div class="col-1">
+                         <a href="#" class="Clearform" ng-click="linkClearform()">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
                         <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2z" />
                         <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466" />
                         </svg>Clear form
-                        </a> *@
+                        </a>
+                    </div> *@
+                    <div class="col-3">
+                        <button type="submit" class="btn btn-dark px-5" id="Submit" ng-click="btnCustomerDetailsSave()">Save</button>
                     </div>
                     <div class="col-3">
-                        <button type="submit" class="btn btn-dark px-5" ng-click="">Register</button>
+                        <button type="submit" class="btn btn-dark px-5" id="Submit" ng-click="">Update</button>
+                    </div>
+                    <div class="col-3">
+                        <button type="submit" class="btn btn-dark px-5" id="Submit" ng-click="">Delete</button>
+                    </div>
+                    <div class="col-3">
+                        <button type="submit" class="btn btn-dark px-5" id="Submit" ng-click="">Cancel</button>
                     </div>
                 </form>
             </div>
