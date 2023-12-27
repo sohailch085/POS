@@ -1,0 +1,69 @@
+﻿@{
+    ViewBag.Title = "Home page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="page-wrapper" style="">
+    <div class="page-content">
+        <h6 class="mb-0 text-uppercase">DataTable Import</h6>
+        <hr />
+        <div class="card">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table id="tbApprovalRequest" class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Company Name</th>
+                                <th>Country</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Website</th>
+                                <th>Preferred Contact Method</th>
+                                <th>Address</th>
+                                <th>Business Description</th>
+                                <th>Request Date</th>
+                                <th>Waiting For<br/> Approval</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>                    
+                    </table>
+
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-8 col-lg-8 col-xl-8 col-sm-12 col-md-8">
+                        
+                    </div>
+                    <div class="col-2 col-lg-2 col-xl-2 col-sm-6 col-md-2">
+                        <a href="@Url.Action("CustomerDetails", "Customerinfo")" class="btn btn-dark" role="button">Approval</a>
+                    </div>
+                    <div class="col-2 col-lg-2 col-xl-2 col-sm-6 col-md-2">
+                        <a href="@Url.Action("CustomerDetails", "Customerinfo")" class="btn btn-danger text-decoration-white" role="button">Decline</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/CutomJquery/ApprovalRequest.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#tbApprovalRequest').DataTable();
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        var table = $('#tbApprovalRequest').DataTable({
+            lengthChange: false,
+            buttons: ['copy', 'excel', 'pdf', 'print']
+        });
+
+        table.buttons().container()
+            .appendTo('#tbApprovalRequest_wrapper .col-md-6:eq(0)');
+    });
+</script>

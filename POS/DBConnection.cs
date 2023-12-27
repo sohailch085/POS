@@ -36,6 +36,7 @@ namespace POS
             }
             return result;
         }
+        
         public void ExecuteQuery(string Query)
         {
             con = new SqlConnection(HelperClass.ConnectionStr);
@@ -45,6 +46,17 @@ namespace POS
             com.ExecuteNonQuery();
             con.Close();
         }
+        //public string ExecuteReaderQuery(string Query)
+        //{
+        //    string ID = "";
+        //    con = new SqlConnection(HelperClass.ConnectionStr);
+        //    con.Open();
+        //    SqlCommand com = new SqlCommand(Query, con);
+        //    com.CommandType = CommandType.Text;
+        //    ID=com.ExecuteReader().ToString();
+        //    con.Close();
+        //    return ID;
+        //}
 
         public DataTable VerifyLogin(string Email,string PasswordHash)
         {
@@ -65,11 +77,29 @@ namespace POS
             string query = "EXEC Sp_Get_CustomerInfo";
             return dt = ReturnDataTable(query);
         }
+        public DataTable GetApprovalRequest()
+        {
+            DataTable dt = new DataTable();
+            string query = "EXEC Sp_Get_ApprovalRequest";
+            return dt = ReturnDataTable(query);
+        }
+        public DataTable GetSupplierType()
+        {
+            DataTable dt = new DataTable();
+            string query = "EXEC Sp_Get_SupplierType";
+            return dt = ReturnDataTable(query);
+        }
         public DataTable GetFilterData(string Id)
         {
             DataTable dt = new DataTable();
             string query = "EXEC Sp_Get_CustomerFilter @CustomerID="+ Id;
             return dt = ReturnDataTable(query);
+        }
+        public void DeleteCustomerInfo(string Id)
+        {
+            DataTable dt = new DataTable();
+            string query = "EXEC Sp_Delete_CustomerInfo @ID=" + Id;
+             ExecuteQuery(query);
         }
         public void AddCompanySignup(CompanySignup companySignup)
         {
@@ -116,6 +146,8 @@ namespace POS
                 cmd.Parameters.AddWithValue("@CustomerID", CustomerDetailsSave.CustomerID);
                 cmd.Parameters.AddWithValue("@CustomerName", CustomerDetailsSave.CustomerName);
                 cmd.Parameters.AddWithValue("@ShortName", CustomerDetailsSave.ShortName);
+                cmd.Parameters.AddWithValue("@AddressLine1", CustomerDetailsSave.AddressLine1);
+                cmd.Parameters.AddWithValue("@AddressLine2", CustomerDetailsSave.AddressLine2);
                 cmd.Parameters.AddWithValue("@CustomerTypeID", CustomerDetailsSave.CustomerTypeID);
                 cmd.Parameters.AddWithValue("@CustomerTypeName", CustomerDetailsSave.CustomerTypeName);
                 cmd.Parameters.AddWithValue("@ParentGroupID", CustomerDetailsSave.ParentGroupID);
@@ -151,8 +183,8 @@ namespace POS
                 }
                 else
                 {
-                    cmd.Parameters.AddWithValue("@CreatedByID", CustomerDetailsSave.CreatedByID);
-                    cmd.Parameters.AddWithValue("@CreatedByDateTime", Convert.ToDateTime(CustomerDetailsSave.CreatedByDateTime));
+                    cmd.Parameters.AddWithValue("@CreatedByID", DBNull.Value);
+                    cmd.Parameters.AddWithValue("@CreatedByDateTime", DBNull.Value);
                     cmd.Parameters.AddWithValue("@UpdatedByID", CustomerDetailsSave.UpdatedByID);
                     cmd.Parameters.AddWithValue("@UpdatedByDateTime", Convert.ToDateTime(CustomerDetailsSave.UpdatedByDateTime));
                     
