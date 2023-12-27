@@ -94,8 +94,10 @@ namespace POS.Controllers
                 customerInfo.ParentGroupName = item.ParentGroupName;
                 customerInfo.GeographicalTerritoryID = item.GeographicalTerritoryID;
                 customerInfo.GeographicalTerritoryName = item.GeographicalTerritoryName.ToUpper();
-                customerInfo.CustomerName = item.Name.ToUpper();
+                customerInfo.CustomerName = item.CustomerName.ToUpper();
                 customerInfo.ShortName = item.ShortName.ToUpper();
+                customerInfo.AddressLine1= item.AddressLine1.ToUpper();
+                customerInfo.AddressLine2= item.AddressLine2.ToUpper();
                 customerInfo.CountryID = item.CountryID;
                 customerInfo.CountryName = item.CountryName.ToUpper();
                 customerInfo.CityID = item.CityID;
@@ -142,5 +144,11 @@ namespace POS.Controllers
             return Json("");
         }
 
+        public JsonResult DeleteRecord(string Id)
+        {
+            DBConnection db = new DBConnection();
+            db.DeleteCustomerInfo(Id);
+            return Json("Delete Record Successfully!!!");
+        }
     }
 }

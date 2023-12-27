@@ -10,7 +10,7 @@
         border-bottom-left-radius: 1px;
     }
 </style>
-<div class="page-wrapper" ng-controller="Logincontroller">
+<div class="page-wrapper">
     <div class="page-content">
         <div class="card border-top border-0 border-4 border-dark" style="width:50%; margin-left:100px;">
             <div class="card-body p-5">
@@ -23,14 +23,14 @@
                         <label class="form-label">Enter Username</label>
                         <div class="input-group input-group-lg">
                                <span class="input-group-text bg-transparent"><i class='bx bxs-user'></i></span>
-                            <input type="text" class="form-control border-start-0" ng-model="Email" id="Email" placeholder="Enter Username" style="" required />
+                            <input type="text" class="form-control border-start-0"  id="Email" placeholder="Enter Username" style="" required />
                         </div>
                     </div>
                     <div class="col-12">
                         <label class="form-label">Enter Password</label>
                         <div class="input-group input-group-lg">
                             <span class="input-group-text bg-transparent"><i class='bx bxs-lock-open'></i></span>
-                            <input type="text" class="form-control border-start-0" ng-model="PasswordHash" id="PasswordHash" placeholder="Enter Password" style="" required />
+                            <input type="text" class="form-control border-start-0"  id="PasswordHash" placeholder="Enter Password" style="" required />
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -44,7 +44,7 @@
                     </div>
                     <div class="col-12">
                         <div class="d-grid">
-                            <button type="submit" id="Login" ng-click="btnLogin()" class="btn btn-dark btn-lg px-5" style=""><i class='bx bxs-lock-open'></i>Login</button>
+                            <button type="submit" id="Login" class="btn btn-dark btn-lg px-5" style=""><i class='bx bxs-lock-open'></i>Login</button>
                         </div>
                     </div>
                     @*  <hr />

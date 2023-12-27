@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using DataBaseLayer;
+using Microsoft.AspNetCore.Mvc;
 
 namespace POS.Controllers
 {
@@ -11,6 +12,20 @@ namespace POS.Controllers
         public IActionResult SupplierDetails()
         {
             return View();
+        }
+        public JsonResult GetCities()
+        {
+            var GeographicalTerritory = GetAllDropDownFill.Get_DropdownValues("Cities");
+            return Json(GeographicalTerritory);
+        }
+        public JsonResult GetCountries()
+        {
+            var GeographicalTerritory = GetAllDropDownFill.Get_DropdownValues("Countries");
+            return Json(GeographicalTerritory);
+        } public JsonResult GetSupplierType()
+        {
+            DBConnection db=new DBConnection();
+            return Json(GetAllDropDownFill.DataTableToJSONWithJSONNet(db.GetSupplierType()));
         }
     }
 }

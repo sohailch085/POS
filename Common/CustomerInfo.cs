@@ -11,6 +11,8 @@ namespace Common
         public long CustomerID { get; set; } = 0;
         public string CustomerName { get; set; } = "";
         public string ShortName { get; set; } = "";
+        public string AddressLine1 { get; set; } = "";
+        public string AddressLine2 { get; set; } = "";
         public int CustomerTypeID { get; set; }
         public string CustomerTypeName { get; set; } = "";
         public int ParentGroupID { get; set; }
@@ -44,6 +46,6 @@ namespace Common
     }
     public class CustomerInfoModel
     {
-        public List<CustomerInfo> lstCustomrInfo { get; set; } //= new List<CustomerInfo>();
+        public List<CustomerInfo> lstCustomrInfo { get; set; } = new List<CustomerInfo>();
     }
 }

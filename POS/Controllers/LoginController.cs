@@ -13,20 +13,25 @@ namespace POS.Controllers
     {
         public IActionResult Login()
         {
-            return View();
+            var Email = HttpContext.Session.GetString("Email");
+            var UserID = HttpContext.Session.GetString("UserID");
+            if (Email != null && UserID != null)
+            {
+                // return View();
+                return RedirectToAction("Index", "Home");
+            }
+            else {
+                return View();
+            }
         }
         public IActionResult CompanySignUp()
         {
             return View();
         }
-        //public IActionResult Approval()
-        //{
-        //    return View();
-        //}
         [HttpPost]
         public JsonResult CompanySignUpSave([FromBody] CompanysignupModel model)
         {
-            if (model.lstcompanySignups == null || model == null || model.lstcompanySignups.Count < 0)
+            if (model == null|| model.lstcompanySignups.Count == 0||model.lstcompanySignups == null  )
                 return Json("404");
             DBConnection dBConnection = new DBConnection();
             CompanySignup companySignup = new CompanySignup();
@@ -47,24 +52,26 @@ namespace POS.Controllers
             return Json("");
         }
         [HttpPost]
-        public JsonResult LoginVerify( string Email, string Password)
+        public JsonResult LoginVerify([FromBody] UserLoginModel model)
         {
-            if (Email == null || Password == null || Email== "undefined"||Password== "undefined")
+            if (model == null || model.lstLogin.Count == 0 || model.lstLogin== null)
                 return Json("404");
 
-            var responseList = new List<object>();
             DBConnection dbConnection = new DBConnection();
-            DataTable dt = new DataTable();
-            dt = dbConnection.VerifyLogin(Email.ToString(), Password.ToString());
-            if (Email == dt.Rows[0]["Email"].ToString() && Password == dt.Rows[0]["PasswordHash"].ToString())
+            Users u = new Users();
+            foreach (var item in model.lstLogin)
             {
-                HttpContext.Session.SetString("Email", dt.Rows[0]["Email"].ToString());
-                HttpContext.Session.SetString("UserID", dt.Rows[0]["UserId"].ToString());
-                return Json("true");
+                u.UserName = item.Email;
+                u.PasswordHash = item.PasswordHash;
+                DataTable dt = new DataTable();
+                dt = dbConnection.VerifyLogin(u.UserName, u.PasswordHash);
+                if (u.UserName == dt.Rows[0]["Email"].ToString() && u.PasswordHash == dt.Rows[0]["PasswordHash"].ToString())
+                {
+                    HttpContext.Session.SetString("Email", dt.Rows[0]["Email"].ToString() );
+                    HttpContext.Session.SetString("UserID", dt.Rows[0]["UserId"].ToString());
+                    return Json("success");
+                }
             }
-            //var response = GetAllDropDownFill.DataTableToJSONWithJSONNet();
-            //responseList.Add(response);
-
             return Json("");
         }
 
