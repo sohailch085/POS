@@ -89,6 +89,24 @@ namespace POS
             string query = "EXEC Sp_Get_SupplierType";
             return dt = ReturnDataTable(query);
         }
+        public DataTable GetTraceabilityType()
+        {
+            DataTable dt = new DataTable();
+            string query = "EXEC Sp_Get_TraceabilityType";
+            return dt = ReturnDataTable(query);
+        }
+        public DataTable GetVenderVerticalIntegration()
+        {
+            DataTable dt = new DataTable();
+            string query = "EXEC Sp_Get_VenderVerticalIntegration";
+            return dt = ReturnDataTable(query);
+        }
+        public DataTable GetFabricProcess()
+        {
+            DataTable dt = new DataTable();
+            string query = "EXEC Sp_Get_FabricProcess";
+            return dt = ReturnDataTable(query);
+        }
         public DataTable GetFilterData(string Id)
         {
             DataTable dt = new DataTable();

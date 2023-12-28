@@ -23,7 +23,7 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Login}/{action=CompanySignUp}/{id?}");
+    pattern: "{controller=Traceability}/{action=Index}/{id?}");
 
 //app.UseEndpoints(endpoints =>
 //{
