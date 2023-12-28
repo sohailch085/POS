@@ -1,0 +1,120 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .form-control.choices-single {
+        appearance: auto;
+    }
+
+    .form-select {
+        /*  height: 46px; */
+        /*  border-radius: 10px; */
+        margin-left: -1px;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        font-size: 14px;
+    }
+
+    .form-control {
+        /* border-radius: 10px !important; */
+        margin-left: -1px;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+
+    .page-wrapper {
+        margin-right: 10%;
+        margin-left: 8%;
+        /*   margin-top: 3%; */
+        /*  margin-bottom: -6px */
+    }
+
+    span {
+        color: red;
+    }
+
+    .btn {
+        width: 100% !important
+    }
+
+    .page-wrapper {
+        margin-right: 10%;
+        margin-left: 8%;
+        overflow-y: auto;
+    
+    }
+
+        /* Add the following CSS to style the scrollbar (optional) */
+        .page-wrapper::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        .page-wrapper::-webkit-scrollbar-thumb {
+            background-color: black;
+            border-radius: 10px;
+        }
+
+        .page-wrapper::-webkit-scrollbar-track {
+            background-color: black;
+        }
+
+  
+/* style="border:1px solid black;width:150px;height:100px;overflow-y:hidden;overflow-x:scroll;" */
+  
+</style>
+
+<div class="page-wrapper">
+    <div class="page-content">
+        <div class="card border-top border-0 border-4 border-dark">
+            <div class="" style="border: 1px solid #b55b5b;width: 500%;height: 60vh;overflow-y:hidden;overflow-x:scroll;">
+                <div class="card-title d-flex align-items-center">
+                    <h3 class="mb-0 text-dark"><b>Traceability</b></h3>
+                    <input type="text" hidden class="form-control border-start-0" id="CustomerID" placeholder="" />
+                </div>
+                <hr>
+                @* <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4" id="CardBinding">
+
+                </div> *@
+                @* <div id="Newdiv" style="background-color:black;width: 30%;"> </div> *@
+                <div class="row" id="Newdiv">
+                       
+                    </div>
+               
+                <div class="col">
+                    <!-- Button trigger modal -->
+                    @* <button type="button" class="btn btn-primary" id="modeltraceability" data-bs-toggle="modal" data-bs-target="#exampleSmallModal">Small Modal</button> *@
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleSmallModal" tabindex="-1" aria-hidden="true">
+                        <div class="modal-dialog modal-sm">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Select</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <select class="form-control" id="TraceabilityType">
+                                    </select>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" id="ok" class="btn btn-primary">Ok</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @*  </div>
+            </div> *@
+        </div>
+    </div>
+</div>
+ <script src="~/cutomjquery/traceability.js"></script>
+@*<script src="~/assets/js/bootstrap.bundle.min.js"></script>
+<!--plugins-->
+<script src="~/assets/js/jquery.min.js"></script>
+<script src="~/assets/plugins/simplebar/js/simplebar.min.js"></script>
+<script src="~/assets/plugins/metismenu/js/metisMenu.min.js"></script>
+<script src="~/assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js"></script>
+<!--app JS-->
+<script src="~/assets/js/app.js"></script> *@

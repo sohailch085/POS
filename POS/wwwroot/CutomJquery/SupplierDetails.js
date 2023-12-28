@@ -2,6 +2,7 @@
     GetCountries();
     GetCity();
     GetSupplierType();
+    GetVenderVerticalIntegration();
 });
 function GetCountries() {
     $.ajax({
@@ -66,6 +67,52 @@ function GetSupplierType() {
                 htmlOptions += '<option id=' + SupplierType[i].TypeId + '>' + uppercaseSupplierTypeName + '</option>'
             }
             $("#SupplierType").append(htmlOptions);
+        },
+        error: function (error) {
+            console.error("Error getting parent group:", error);
+        }
+    });
+}
+function GetVenderVerticalIntegration() {
+    $.ajax({
+        type: "GET",
+        url: "/SupplierInfo/GetVenderVerticalIntegration",
+        contentType: "application/json",
+        async: false,
+        success: function (response) {
+            debugger;
+            console.log(response);
+            var VenderVerticalIntegration = JSON.parse(response);
+            var htmlOptions = '<option>--Select--</option>'
+
+            for (var i = 0; i < VenderVerticalIntegration.length; i++) {
+                var uppercaseVenderVerticalIntegration = VenderVerticalIntegration[i].Name.toUpperCase();
+                htmlOptions += '<option id=' + VenderVerticalIntegration[i].VenderVerticalID + '>' + uppercaseVenderVerticalIntegration + '</option>'
+            }
+            $("#VerticalIntegration").append(htmlOptions);
+        },
+        error: function (error) {
+            console.error("Error getting parent group:", error);
+        }
+    });
+}
+function GetFabricProcess() {
+    $.ajax({
+        type: "GET",
+        url: "/SupplierInfo/GetFabricProcess",
+        contentType: "application/json",
+        async: false,
+        success: function (response) {
+            debugger;
+            console.log(response);
+            var FabricProcess = JSON.parse(response);
+            var htmlOptions = '<option>--Select--</option>'
+
+            for (var i = 0; i < FabricProcess.length; i++) {
+                var uppercaseFabricProcess = FabricProcess[i].Fabric.toUpperCase();
+                htmlOptions += '<option id=' + FabricProcess[i].FabricProcessId + '>' + uppercaseFabricProcess + '</option>'
+            }
+            $("#FabricProcessed").append(htmlOptions);
         },
         error: function (error) {
             console.error("Error getting parent group:", error);
