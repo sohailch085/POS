@@ -39,7 +39,10 @@
 
     });
 
-
+    $("#CompositionClose").on("click", function () {
+        debugger;
+        $('#exampleVerticallycenteredModal').modal("hide");
+    });
 
 
 
@@ -49,12 +52,13 @@
 function NewCare(TraceabilityType, TraceabilityTypeName) {
     var html = '';
     if (TraceabilityType == "" || TraceabilityTypeName == "") {
-        html = '<div class="col" id = "leftDiv" style="width: 30%;">' +
-            '<div class="col">' +
-            '       <label id=' + TraceabilityType + '>' + TraceabilityTypeName + '</label>' +
-            '       <div class="card radius-10" style="height:30vh">' +
-            '           <div class="card-body">' +
-            '               <div class="d-flex align-items-center">' +
+        html =
+            //'<div class="col" id = "leftDiv">' +
+            //'<div class="col">' +
+            //'       <label id=' + TraceabilityType + '>' + TraceabilityTypeName + '</label>' +
+            //'       <div class="card radius-10" style="height:30vh;width: 50%;">' +
+            //'           <div class="card-body">' +
+            '               <div class=" align-items-center">' +
             '                    <div>' +
             '                      <button type="button" id = "CreateCard" onclick="CreateCard("","")" class="btn btn-success-cart" data-id=' + TraceabilityType + '> ' +
             '                             <svg xmlns = "http://www.w3.org/2000/ svg" width = "16" height = "16" fill =                                "currentColor" class="bi bi-plus-circle" viewBox = "0 0 16 16" style = "margin-                                                 left:185px;margin-top: 50%" > ' +
@@ -62,12 +66,12 @@ function NewCare(TraceabilityType, TraceabilityTypeName) {
             '                           <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1                                           0-1h3v-3A.5.5 0 0 1 8 4" />' +
             '                           </svg>' +
             '                      </button > ' +
-            '                    </div> ' +
+            //'                    </div> ' +
 
-            '               </div> ' +
+            //'               </div> ' +
 
-            '           </div>' +
-            '       </div>' +
+            //'           </div>' +
+            //'       </div>' +
             '</div> '+
             '</div > ';
             
@@ -75,10 +79,10 @@ function NewCare(TraceabilityType, TraceabilityTypeName) {
 
         $("#Newdiv").append(html);
     } else {        
-        html = '<div class="col" id="rightDiv"style="width: 30%;">' +
+        html = '<div class="col" id="rightDiv" style="margin-left: 10px;">' +
             '<div class="col">' +
             '       <label id=' + TraceabilityType + '>' + TraceabilityTypeName + '</label>' +
-            '       <div class="card radius-10" style="height:30vh">' +
+            '       <div class="card radius-10" style="height:30vh;width: 50%;">' +
             '           <div class="card-body">' +
             '               <div class="d-flex align-items-center">' +
             '                    <div>' +
