@@ -38,50 +38,206 @@
         width: 100% !important
     }
 
-    div.scroll {
-        margin: 4px, 4px;
-        padding: 4px;
-        background-color: #08c708;
-        width: 100%;
-        overflow-x: auto;
-        overflow-y: hidden;
-        white-space: nowrap;
+    /* style="border:1px solid black;width:150px;height:100px;overflow-y:hidden;overflow-x:scroll;"
+                                                            style="border:1px solid black;width:250%;overflow-y:hidden;overflow-x:scroll;"
+                                                    */
+
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        width: 1300px; /* enough space for 4 flip card */
+        overflow-x: scroll /* horizontal scrollable */
     }
 
-    /* style="border:1px solid black;width:150px;height:100px;overflow-y:hidden;overflow-x:scroll;"
-                                        style="border:1px solid black;width:250%;overflow-y:hidden;overflow-x:scroll;"
-                                */
+  /*   .flip-card {
+        background-color: transparent;
+        width: 300px;
+        height: 300px;
+        perspective: 1000px;
+        display: inline-block;
+        margin: 10px 
+    } */ 
+    .card {
+       /*  background-color: transparent; */
+        width: 300px !important;
+        height: 300px !important;
+        perspective: 1000px !important;
+        display: inline-block !important; /* to appear alongside each other in a horizontal line */
+        margin: 10px !important/* a slight gap between each card */
+    }
 
+  /*   .flip-card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        transition: transform 0.6s;
+        transform-style: preserve-3d;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    } */
+
+    .card-body {
+        position: relative !important;
+        width: 100% !important;
+        height: 100% !important;
+        text-align: center !important;
+        transition: transform 0.6s !important;
+        transform-style: preserve-3d !important;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2) !important;
+    }
+
+   /*  .flip-card:hover .flip-card-inner {
+        transform: rotateY(180deg);
+    } */
+
+    .flip-card-front {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+    }
+
+    .flip-card-front {
+        background-color: #bbb;
+        color: black;
+        z-index: 2;
+    }
+    /* , .flip-card-back
+    .flip-card-back {
+        background-color: #2980b9;
+        color: white;
+        transform: rotateY(180deg);
+        z-index: 1;
+    } */
+
+    #Maindev{
+    width:6000%;
+    }
 </style>
 
 <div class="page-wrapper">
     <div class="page-content">
-        <div class="scroll">
-            <h3 class="mb-0 text-dark"><b>Traceability</b></h3>
-            <hr>
-            <form class="row g-3">
-                <div class="col" id="Newdiv" style="width:1000%;">
-                    <div class="card">
-                        <div class="card-body" id="Newdiv">
-                            @*  <div class="d-flex align-items-center">
-                            <div>
-                            <button type="button" id="CreateCard" onclick="CreateCard('', '')" class="btn btn-success-cart" data-id="TraceabilityType">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16" style="margin-left:185px;margin-top: 50%">
-                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
-                            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4" />
-                            </svg>
-                            </button>
-                            </div>
-                            </div> *@
-                        </div>
-                    </div>
-                </div>
 
-                @* <div class="row" id="Newdiv" style="width:1000%;">
-                </div> *@
-            </form>
+
+      @*  <h1>Hover over the cards to learn about the STIs and BBVs.</h1>
+        <h3>Hover over the image below:</h3>
+
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img src="" alt="Avatar" style="width:300px;height:300px;">
+                </div>
+                <div class="flip-card-back">
+                    <h1>Gonorrhea</h1>
+                    <p>
+                        Positives - Can be cured<br><br>
+                        Negatives - Some strains cannot be cured. If left untreated it can lead to infertility or death.<br><br>
+                        Click <a href="https://playsafe.health.nsw.gov.au/common-stis/gonorrhoea/">here</a> to learn more
+
+                    </p>
+                </div>
+            </div>
         </div>
 
+        <!-- remove parent element with class name .right because it's unnecessary -->
+         <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img src="" alt="Avatar" style="width:300px;height:300px;">
+                </div>
+                <div class="flip-card-back">
+
+                    <h1>Chlamydia</h1>
+                    <p>
+                        Positives - This is easily treated and cured with antibiotics.<br><br>
+                        Negatives - If left untreated can lead to infertility.<br><br>
+                        Click <a href="https://playsafe.health.nsw.gov.au/common-stis/chlamydia/">here</a> to learn more
+
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img src="" alt="Avatar" style="width:300px;height:300px;">
+                </div>
+                <div class="flip-card-back">
+                    <h1>Syphilis</h1>
+                    <p>
+                        Positives -               .<br><br>
+                        Negatives -                        .<br><br>
+                        Click <a href="https://playsafe.health.nsw.gov.au/common-stis/syphilis/">here</a> to learn more
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img src="" alt="Avatar" style="width:300px;height:300px;">
+                </div>
+                <div class="flip-card-back">
+                    <h1>HIV</h1>
+                    <p>
+                        Positives -               .<br><br>
+                        Negatives -                        .<br><br>
+                        Click <a href="https://playsafe.health.nsw.gov.au/common-stis/hiv-aids/">here</a> to learn more
+                    </p>
+                </div>
+            </div>
+        </div>  *@
+
+        @* <div class="card shadow-none bg-transparent border-bottom border-2">
+            <div class="card-body">
+                <div class="row align-items-center">
+                    <div class="col-md-3">
+                        <h4 class="mb-3 mb-md-0">test1</h4>
+                    </div>
+                    <div class="col-md-9">
+                        <form class="row" id="cardContainer" style="width: 6000%;margin-top: 30%;">
+                        </form>
+                         <form class="float-md-end">
+  <div class="row row-cols-md-auto g-lg-3">
+                                <label for="inputFromDate" class="col-md-2 col-form-label text-md-end">From Date</label>
+                                <div class="col-md-4">
+                                    <input type="date" class="form-control" id="inputFromDate">
+                                </div>
+                                <label for="inputToDate" class="col-md-2 col-form-label text-md-end">To Date</label>
+                                <div class="col-md-4">
+                                    <input type="date" class="form-control" id="inputToDate">
+                                </div>
+                            </div> 
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div> *@
+
+        @*  <div class="col">
+            <div class="card radius-10">
+                <div class="card-body">
+                    <div class="d-flex align-items-center">
+                        <form class="row" id="cardContainer" style="width: 6000%;margin-top: 30%;">
+                        </form>
+                         <div>
+                            <p class="mb-0">Total Users</p>
+                            <h5 class="mb-0">85,028</h5>
+                        </div>
+                        <div class="dropdown ms-auto">
+                          
+                        </div> 
+                    </div>
+                    <div class="" id="chart2"></div>
+                </div>
+            </div>
+        </div>*@
+
+        @* <div class="container">
+            <form class="row" id="cardContainer" style="width: 6000%;margin-top: 30%;">
+            </form>
+        </div> *@
         <div class="col">
             <!-- Button trigger modal -->
             @* <button type="button" class="btn btn-primary" id="modeltraceability" data-bs-toggle="modal" data-bs-target="#exampleSmallModal">Small Modal</button> *@
@@ -108,7 +264,7 @@
         <!--Fabric / Yarn Model Start-->
 
         <div class="col">
-            <div class="modal fade" id="exampleLargeModal" tabindex="-1" aria-hidden="true">
+            <div class="modal fade" id="FabricYarnLargeModal" tabindex="-1" aria-hidden="true">
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -129,36 +285,36 @@
                                 <hr />
                                 <div class="col-4 col-md-4 col-lg-4 col-xlg-4">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="lightmode" checked>
+                                        <input class="form-check-input" type="radio" name="DetailType" id="FabricDetail" checked>
                                         <label class="form-check-label">Fabric Detail</label>
                                     </div>
                                 </div>
                                 <div class="col-4 col-md-4 col-lg-4 col-xlg-4">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="lightmode" checked>
+                                        <input class="form-check-input" type="radio" name="DetailType" id="YarnDetail" />
                                         <label class="form-check-label">Yarn Detail</label>
                                     </div>
                                 </div>
                                 <div class="col-4 col-md-4 col-lg-4 col-xl-4">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="lightmode" checked>
+                                        <input class="form-check-input" type="radio" name="DetailType" id="CottonDetail" />
                                         <label class="form-check-label">Cotton Detail</label>
                                     </div>
                                 </div>
-                                <div class="col-xl-6 col-lg-6 col-xxl-6 col-6 col-md-6 col-sm-12">
+                                <div class="col-xl-6 col-lg-6 col-xxl-6 col-6 col-md-6 col-sm-12" id="FabricDetailSourceDate">
                                     <label class="form-label">Source Date</label>
                                     <div class="input-group">
                                         <input type="datetime-local" class="form-control border-start-1" id="SourceDate" name="birthdaytime">
                                     </div>
                                 </div>
-                                <div class="col-xl-6 col-lg-6 col-xxl-6 col-6 col-md-6 col-sm-12">
+                                <div class="col-xl-6 col-lg-6 col-xxl-6 col-6 col-md-6 col-sm-12" id="FabricDetailBatchDo">
                                     <label class="form-label">Batch / Do#</label>
                                     <div class="input-group">
                                         <span class="input-group-text bg-transparent"><i class='bx bxs-user'></i></span>
                                         <input type="text" class="form-control border-start-0" id="BatchDo" placeholder="" />
                                     </div>
                                 </div>
-                                <div class="col-xl-6 col-lg-6 col-xxl-6 col-6 col-md-6 col-sm-12">
+                                <div class="col-xl-6 col-lg-6 col-xxl-6 col-6 col-md-6 col-sm-12" id="FabricDetailFabricSupplier">
                                     <label class="form-label">Fabric Supplier</label>
                                     <div class="input-group">
                                         <span class="input-group-text bg-transparent">
@@ -170,38 +326,36 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-3 col-md-3 col-lg-3 col-xl-3 col-sm-12">
+                                <div class="col-3 col-md-3 col-lg-3 col-xl-3 col-sm-12" id="FabricDetailFactorySource">
                                     <div class="form-check" style="margin-top:34px;">
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="lightmode1" checked>
+                                        <input class="form-check-input" type="radio" name="FactoryNominated" id="FactoryNominated" checked>
                                         <label class="form-check-label">Factory Source</label>
                                     </div>
                                 </div>
-                                <div class="col-3 col-md-3 col-lg-3 col-xl-3 col-sm-12">
+                                <div class="col-3 col-md-3 col-lg-3 col-xl-3 col-sm-12" id="FabricDetailNominatedSource">
                                     <div class="form-check" style="margin-top:34px;">
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="lightmode1" checked>
+                                        <input class="form-check-input" type="radio" name="FactoryNominated" id="FactoryNominated" checked>
                                         <label class="form-check-label">Nominated Source</label>
                                     </div>
                                 </div>
-                                <div class="col-xl-6 col-lg-6 col-xxl-6 col-6 col-md-6 col-sm-12">
+                                <div class="col-xl-6 col-lg-6 col-xxl-6 col-6 col-md-6 col-sm-12" id="FabricDetailFabricCodeSupplier">
                                     <label class="form-label">Fabric Code (Supplier)</label>
                                     <div class="input-group">
                                         <span class="input-group-text bg-transparent"><i class='bx bxs-user'></i></span>
                                         <input type="text" class="form-control border-start-0" id="FabricCodeSupplier" placeholder="" />
                                     </div>
                                 </div>
-                                <div class="col-xl-5 col-lg-5 col-xxl-5 col-5 col-md-5 col-sm-12">
+                                <div class="col-xl-5 col-lg-5 col-xxl-5 col-5 col-md-5 col-sm-12" id="FabricDetailFabricComposition">
                                     <label class="form-label">Fabric Composition</label>
                                     <div class="input-group">
                                         <span class="input-group-text bg-transparent"><i class='bx bxs-user'></i></span>
                                         <input type="text" class="form-control border-start-0" id="FabricComposition" placeholder="" />
                                     </div>
                                 </div>
-                                <div class="col-xl-1 col-lg-1 col-xxl-1 col-1 col-md-1 col-sm-12">
-                                    <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleVerticallycenteredModal" style="margin-top:27px;">...</button>
-                                    <!-- Modal -->
-
+                                <div class="col-xl-1 col-lg-1 col-xxl-1 col-1 col-md-1 col-sm-12" style="margin-top:45px;" id="FabricDetailFabricCompositionSelect">
+                                    <button type="button" id="btn_BrandSelect" class="btn btn-dark">...</button>
                                 </div>
-                                <div class="col-xl-6 col-lg-6 col-xxl-6 col-6 col-md-6 col-sm-12">
+                                <div class="col-xl-6 col-lg-6 col-xxl-6 col-6 col-md-6 col-sm-12" id="FabricDetailFabricType">
                                     <label class="form-label">Fabric Type</label>
                                     <div class="input-group">
                                         <span class="input-group-text bg-transparent">
@@ -209,11 +363,11 @@
                                                 <path fill-rule="evenodd" d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m-3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2" />
                                             </svg>
                                         </span>
-                                        <select class="form-select" id="customerType">
+                                        <select class="form-select" id="FabricType">
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-xl-6 col-lg-6 col-xxl-6 col-6 col-md-6 col-sm-12">
+                                <div class="col-xl-6 col-lg-6 col-xxl-6 col-6 col-md-6 col-sm-12" id="FabricDetailKindofFabric">
                                     <label class="form-label">Kind of Fabric</label>
                                     <div class="input-group">
                                         <span class="input-group-text bg-transparent">
@@ -221,18 +375,18 @@
                                                 <path fill-rule="evenodd" d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m-3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2" />
                                             </svg>
                                         </span>
-                                        <select class="form-select" id="customerType">
+                                        <select class="form-select" id="KindofFabric">
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-xl-4 col-lg-4 col-xxl-4 col-4 col-md-4 col-sm-12">
+                                <div class="col-xl-4 col-lg-4 col-xxl-4 col-4 col-md-4 col-sm-12" id="FabricDetailFabricWeight">
                                     <label class="form-label">Fabric Weight</label>
                                     <div class="input-group">
                                         <span class="input-group-text bg-transparent"><i class='bx bxs-user'></i></span>
-                                        <input type="text" class="form-control border-start-0" id="CustomerName" placeholder="" />
+                                        <input type="text" class="form-control border-start-0" id="FabricWeight" placeholder="" />
                                     </div>
                                 </div>
-                                <div class="col-xl-2 col-lg-2 col-xxl-2 col-2 col-md-2 col-sm-12">
+                                <div class="col-xl-2 col-lg-2 col-xxl-2 col-2 col-md-2 col-sm-12" id="FabricDetailWeightType">
                                     <label class="form-label">Weight Type</label>
                                     <div class="input-group">
                                         @*  <span class="input-group-text bg-transparent">
@@ -240,11 +394,15 @@
                                         <path fill-rule="evenodd" d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m-3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2" />
                                         </svg>
                                         </span> *@
-                                        <select class="form-select" id="customerType">
+                                        <select class="form-select" id="WeightType">
+                                            <option>--Select--</option>
+                                            <option value="GSM">GSM</option>
+                                            <option value="GG">GG</option>
+                                            <option value="OUNCE">OUNCE</option>
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-xl-6 col-lg-6 col-xxl-6 col-6 col-md-6 col-sm-12">
+                                <div class="col-xl-6 col-lg-6 col-xxl-6 col-6 col-md-6 col-sm-12" id="FabricDetailCottonInitiative">
                                     <label class="form-label">Cotton Initiative</label>
                                     <div class="input-group">
                                         <span class="input-group-text bg-transparent">
@@ -252,85 +410,327 @@
                                                 <path fill-rule="evenodd" d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m-3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2" />
                                             </svg>
                                         </span>
-                                        <select class="form-select" id="customerType">
+                                        <select class="form-select" id="CottonInitiative">
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-xl-4 col-lg-4 col-xxl-4 col-4 col-md-4 col-sm-12">
+                                <div class="col-xl-4 col-lg-4 col-xxl-4 col-4 col-md-4 col-sm-12" id="FabricDetailConstruction">
                                     <label class="form-label">Construction</label>
                                     <div class="input-group">
                                         <span class="input-group-text bg-transparent"><i class='bx bxs-user'></i></span>
-                                        <input type="text" class="form-control border-start-0" id="CustomerName" placeholder="" />
+                                        <input type="text" class="form-control border-start-0" id="Construction" placeholder="" />
                                     </div>
                                 </div>
-                                <div class="col-xl-4 col-lg-4 col-xxl-4 col-4 col-md-4 col-sm-12">
+                                <div class="col-xl-4 col-lg-4 col-xxl-4 col-4 col-md-4 col-sm-12" id="FabricDetailFabricWidth">
                                     <label class="form-label">Fabric Width</label>
                                     <div class="input-group">
                                         <span class="input-group-text bg-transparent"><i class='bx bxs-user'></i></span>
-                                        <input type="text" class="form-control border-start-0" id="CustomerName" placeholder="" />
+                                        <input type="text" class="form-control border-start-0" id="FabricWidth" placeholder="" />
                                     </div>
                                 </div>
-                                <div class="col-xl-2 col-lg-2 col-xxl-2 col-2 col-md-2 col-sm-12">
+                                <div class="col-xl-2 col-lg-2 col-xxl-2 col-2 col-md-2 col-sm-12" id="FabricDetailWeightType1">
                                     <label class="form-label">Weight Type</label>
                                     <div class="input-group">
-                                        <select class="form-select" id="customerType">
+                                        <select class="form-select" id="WeightType1">
+                                            <option>--Select--</option>
+                                            <option value="FULL">FULL</option>
+                                            <option value="CUTTABLE">CUTTABLE</option>
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-xl-2 col-lg-2 col-xxl-2 col-2 col-md-2 col-sm-12">
+                                <div class="col-xl-2 col-lg-2 col-xxl-2 col-2 col-md-2 col-sm-12" id="FabricDetailWeightType2">
                                     <label class="form-label">Weight Type</label>
                                     <div class="input-group">
-                                        <select class="form-select" id="customerType">
+                                        <select class="form-select" id="WeightType2">
+                                            <option>--Select--</option>
+                                            <option value="CM">CM</option>
+                                            <option value="INCH">INCH</option>
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-xl-5 col-lg-5 col-xxl-5 col-5 col-md-5 col-sm-12">
+                                <div class="col-xl-5 col-lg-5 col-xxl-5 col-5 col-md-5 col-sm-12" id="FabricDetailQuantity">
                                     <label class="form-label">Quantity</label>
                                     <div class="input-group">
                                         <span class="input-group-text bg-transparent"><i class='bx bxs-user'></i></span>
-                                        <input type="text" class="form-control border-start-0" id="CustomerName" placeholder="" />
+                                        <input type="text" class="form-control border-start-0" id="Quantity" placeholder="" />
                                     </div>
                                 </div>
-                                <div class="col-xl-2 col-lg-2 col-xxl-2 col-2 col-md-2 col-sm-12">
+                                <div class="col-xl-2 col-lg-2 col-xxl-2 col-2 col-md-2 col-sm-12" id="FabricDetailQuantityType">
                                     <label class="form-label">Quantity Type</label>
                                     <div class="input-group">
-                                        <select class="form-select" id="customerType">
+                                        <select class="form-select" id="QuantityType">
+                                            <option>--Select--</option>
+                                            <option value="M">M</option>
+                                            <option value="KG">KG</option>
+                                            <option value="YD">YD</option>
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-xl-5 col-lg-5 col-xxl-5 col-5 col-md-5 col-sm-12">
+                                <div class="col-xl-5 col-lg-5 col-xxl-5 col-5 col-md-5 col-sm-12" id="FabricDetailYarnCount">
                                     <label class="form-label">Yarn Count</label>
                                     <div class="input-group">
                                         <span class="input-group-text bg-transparent"><i class='bx bxs-user'></i></span>
-                                        <input type="text" class="form-control border-start-0" id="CustomerName" placeholder="" />
+                                        <input type="text" class="form-control border-start-0" id="YarnCount" placeholder="" />
                                     </div>
                                 </div>
-                                <div class="col-xl-5 col-lg-5 col-xxl-5 col-5 col-md-5 col-sm-12">
+                                <div class="col-xl-5 col-lg-5 col-xxl-5 col-5 col-md-5 col-sm-12" id="FabricDetailFabricCurrency">
                                     <label class="form-label">Currency</label>
                                     <div class="input-group">
-                                        <select class="form-select" id="customerType">
+                                        <select class="form-select" id="FabricCurrency">
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-xl-5 col-lg-5 col-xxl-5 col-5 col-md-5 col-sm-12">
+                                <div class="col-xl-5 col-lg-5 col-xxl-5 col-5 col-md-5 col-sm-12" id="FabricDetailFabricPrice">
                                     <label class="form-label">Price</label>
                                     <div class="input-group">
                                         <span class="input-group-text bg-transparent"><i class='bx bxs-user'></i></span>
-                                        <input type="text" class="form-control border-start-0" id="CustomerName" placeholder="" />
+                                        <input type="text" class="form-control border-start-0" id="FabricPrice" placeholder="" />
                                     </div>
                                 </div>
-                                <div class="col-xl-2 col-lg-2 col-xxl-2 col-2 col-md-2 col-sm-12">
+                                <div class="col-xl-2 col-lg-2 col-xxl-2 col-2 col-md-2 col-sm-12" id="FabricDetailFabricPriceType">
                                     <label class="form-label">Price Type</label>
                                     <div class="input-group">
-                                        <select class="form-select" id="customerType">
+                                        <select class="form-select" id="FabricPriceType">
+                                            <option>--Select--</option>
+                                            <option value="M">M</option>
+                                            <option value="KG">KG</option>
+                                            <option value="YD">YD</option>
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-xl-10 col-lg-10 col-xxl-10 col-10 col-md-10 col-sm-12"></div>
-                                <div class="col-xl-2 col-lg-2 col-xxl-2 col-2 col-md-2 col-sm-12">
+                                <div class="col-xl-10 col-lg-10 col-xxl-10 col-10 col-md-10 col-sm-12" id="FabricDetailspace"></div>
+                                <div class="col-xl-2 col-lg-2 col-xxl-2 col-2 col-md-2 col-sm-12" id="FabricDtailsSave">
                                     <button type="button" class="btn btn-dark">Save</button>
                                 </div>
-                                <div class="modal fade" id="exampleVerticallycenteredModal" tabindex="-1" aria-hidden="true">
+
+                                <!--Yarn Details Start-->
+                                <div class="col-xl-6 col-lg-6 col-xxl-6 col-6 col-md-6 col-sm-12" id="YarnDetailSourceDate">
+                                    <label class="form-label">Source Date</label>
+                                    <div class="input-group">
+                                        <input type="datetime-local" class="form-control border-start-1" id="SourceDate" name="birthdaytime">
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-xxl-6 col-6 col-md-6 col-sm-12" id="YarnDetailBatchDo">
+                                    <label class="form-label">Batch / Do#</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-transparent"><i class='bx bxs-user'></i></span>
+                                        <input type="text" class="form-control border-start-0" id="BatchDo" placeholder="" />
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-xxl-6 col-6 col-md-6 col-sm-12" id="YarnDetailSupplier">
+                                    <label class="form-label">Yarn Supplier</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-transparent">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list-ul" viewBox="0 0 16 16">
+                                                <path fill-rule="evenodd" d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m-3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2" />
+                                            </svg>
+                                        </span>
+                                        <select class="form-select" id="YarnDetailYarnSupplier">
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-3 col-md-3 col-lg-3 col-xl-3 col-sm-12" id="YarnDetailFactorySource">
+                                    <div class="form-check" style="margin-top:34px;">
+                                        <input class="form-check-input" type="radio" name="FactoryNominated" id="FactoryNominated" checked>
+                                        <label class="form-check-label">Factory Source</label>
+                                    </div>
+                                </div>
+                                <div class="col-3 col-md-3 col-lg-3 col-xl-3 col-sm-12" id="YarnDetailNominatedSource">
+                                    <div class="form-check" style="margin-top:34px;">
+                                        <input class="form-check-input" type="radio" name="FactoryNominated" id="FactoryNominated" checked>
+                                        <label class="form-check-label">Nominated Source</label>
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-xxl-6 col-6 col-md-6 col-sm-12" id="YarnDetailCode">
+                                    <label class="form-label">Yarn Code (Supplier)</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-transparent"><i class='bx bxs-user'></i></span>
+                                        <input type="text" class="form-control border-start-0" id="YarnDetailYarnCode" placeholder="" />
+                                    </div>
+                                </div>
+                                <div class="col-xl-5 col-lg-5 col-xxl-5 col-5 col-md-5 col-sm-12" id="YarnDetailMaterial">
+                                    <label class="form-label">Material</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-transparent"><i class='bx bxs-user'></i></span>
+                                        <input type="text" class="form-control border-start-0" id="Material" placeholder="" />
+                                    </div>
+                                </div>
+                                <div class="col-xl-1 col-lg-1 col-xxl-1 col-1 col-md-1 col-sm-12" style="margin-top:45px;" id="YarnDetailFabricCompositionSelect">
+                                    <button type="button" id="btn_BrandSelect" class="btn btn-dark">...</button>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-xxl-6 col-6 col-md-6 col-sm-12" id="YarnDetailCottonInitiative">
+                                    <label class="form-label">Cotton Initiative</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-transparent">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list-ul" viewBox="0 0 16 16">
+                                                <path fill-rule="evenodd" d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m-3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2" />
+                                            </svg>
+                                        </span>
+                                        <select class="form-select" id="YarnDetailCottonInitiative">
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-xxl-6 col-6 col-md-6 col-sm-12" id="YarnDetailCount">
+                                    <label class="form-label">Yarn Count</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-transparent"><i class='bx bxs-user'></i></span>
+                                        <input type="text" class="form-control border-start-0" id="YarnCount" placeholder="" />
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-xxl-6 col-6 col-md-6 col-sm-12" id="YarnDetailQuantity">
+                                    <label class="form-label">Quantity</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-transparent"><i class='bx bxs-user'></i></span>
+                                        <input type="text" class="form-control border-start-0" id="YarnQuantity" placeholder="" />
+                                    </div>
+                                </div>
+                                <div class="col-xl-2 col-lg-2 col-xxl-2 col-2 col-md-2 col-sm-12" id="YarnDetailQtyType">
+                                    <label class="form-label">Quantity Type</label>
+                                    <div class="input-group">
+                                        <select class="form-select" id="YarnDetailQuantityType">
+                                            <option value="">--Select--</option>
+                                            <option value="M">M</option>
+                                            <option value="KG">KG</option>
+                                            <option value="YD">YD</option>
+                                            <option value="LBS">LBS</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-xxl-4 col-4 col-md-4 col-sm-12" id="YarnDetailPrice">
+                                    <label class="form-label">Price</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-transparent"><i class='bx bxs-user'></i></span>
+                                        <input type="text" class="form-control border-start-0" id="YarnPrice" placeholder="" />
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-xxl-6 col-6 col-md-6 col-sm-12" id="YarnDetailCurrencyType">
+                                    <label class="form-label">Quantity Type</label>
+                                    <div class="input-group">
+                                        <select class="form-select" id="YarnDetailCurrency">
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-xxl-6 col-6 col-md-6 col-sm-12" id="YarnDetailspace1"></div>
+                                <div class="col-xl-10 col-lg-10 col-xxl-10 col-10 col-md-10 col-sm-12" id="YarnDetailspace2"></div>
+                                <div class="col-xl-2 col-lg-2 col-xxl-2 col-2 col-md-2 col-sm-12" id="YarnDetailssave">
+                                    <button type="button" id="btn_YarnDetailSave" class="btn btn-dark">Save</button>
+                                </div>
+                                <!--Yarn Details End-->
+                                <!--Cotton Details Start-->
+                                <div class="col-xl-6 col-lg-6 col-xxl-6 col-6 col-md-6 col-sm-12" id="CottonDetailSourceDate">
+                                    <label class="form-label">Source Date</label>
+                                    <div class="input-group">
+                                        <input type="datetime-local" class="form-control border-start-1" id="SourceDate" name="birthdaytime">
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-xxl-6 col-6 col-md-6 col-sm-12" id="CottonDetailBatchDo">
+                                    <label class="form-label">Batch / Do#</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-transparent"><i class='bx bxs-user'></i></span>
+                                        <input type="text" class="form-control border-start-0" id="BatchDo" placeholder="" />
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-xxl-6 col-6 col-md-6 col-sm-12" id="CottonDetailSupplier">
+                                    <label class="form-label">Ginner</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-transparent">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list-ul" viewBox="0 0 16 16">
+                                                <path fill-rule="evenodd" d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m-3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2" />
+                                            </svg>
+                                        </span>
+                                        <select class="form-select" id="CottonDetailGinner">
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-3 col-md-3 col-lg-3 col-xl-3 col-sm-12" id="CottonDetailFactorySource">
+                                    <div class="form-check" style="margin-top:34px;">
+                                        <input class="form-check-input" type="radio" name="FactoryNominated" id="FactoryNominated" checked>
+                                        <label class="form-check-label">Factory Source</label>
+                                    </div>
+                                </div>
+                                <div class="col-3 col-md-3 col-lg-3 col-xl-3 col-sm-12" id="CottonDetailNominatedSource">
+                                    <div class="form-check" style="margin-top:34px;">
+                                        <input class="form-check-input" type="radio" name="FactoryNominated" id="FactoryNominated" checked>
+                                        <label class="form-check-label">Nominated Source</label>
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-xxl-6 col-6 col-md-6 col-sm-12" id="CottonDetailCode">
+                                    <label class="form-label">Ginner Code</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-transparent"><i class='bx bxs-user'></i></span>
+                                        <input type="text" class="form-control border-start-0" id="YarnDetailYarnCode" placeholder="" />
+                                    </div>
+                                </div>
+                                <div class="col-xl-5 col-lg-5 col-xxl-5 col-5 col-md-5 col-sm-12" id="CottonDetailMaterial">
+                                    <label class="form-label">Material</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-transparent"><i class='bx bxs-user'></i></span>
+                                        <input type="text" class="form-control border-start-0" id="Material" placeholder="" />
+                                    </div>
+                                </div>
+                                <div class="col-xl-1 col-lg-1 col-xxl-1 col-1 col-md-1 col-sm-12" style="margin-top:45px;" id="CottonDetailCottonSelect">
+                                    <button type="button" id="btn_CottonSelect" class="btn btn-dark">...</button>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-xxl-6 col-6 col-md-6 col-sm-12" id="CottonDetailCottonInitiative">
+                                    <label class="form-label">Cotton Initiative</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-transparent">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list-ul" viewBox="0 0 16 16">
+                                                <path fill-rule="evenodd" d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m-3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2" />
+                                            </svg>
+                                        </span>
+                                        <select class="form-select" id="YarnDetailCottonInitiative">
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-xxl-6 col-6 col-md-6 col-sm-12" id="CottonDetailCottonOrigin">
+                                    <label class="form-label">Origin</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-transparent"><i class='bx bxs-user'></i></span>
+                                        <input type="text" class="form-control border-start-0" id="CottonOrigin" placeholder="" />
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-xxl-6 col-6 col-md-6 col-sm-12" id="CottonDetailQuantity">
+                                    <label class="form-label">Quantity</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-transparent"><i class='bx bxs-user'></i></span>
+                                        <input type="text" class="form-control border-start-0" id="CottonQuantity" placeholder="" />
+                                    </div>
+                                </div>
+                                <div class="col-xl-2 col-lg-2 col-xxl-2 col-2 col-md-2 col-sm-12" id="CottonDetailQtyType">
+                                    <label class="form-label">Quantity Type</label>
+                                    <div class="input-group">
+                                        <select class="form-select" id="CottonDetailQuantityType">
+                                            <option value="">--Select--</option>
+                                            <option value="M">M</option>
+                                            <option value="KG">KG</option>
+                                            <option value="YD">YD</option>
+                                            <option value="LBS">LBS</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-xxl-4 col-4 col-md-4 col-sm-12" id="CottonDetailPrice">
+                                    <label class="form-label">Price</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-transparent"><i class='bx bxs-user'></i></span>
+                                        <input type="text" class="form-control border-start-0" id="YarnPrice" placeholder="" />
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-xxl-6 col-6 col-md-6 col-sm-12" id="CottonDetailCurrencyType">
+                                    <label class="form-label">Quantity Type</label>
+                                    <div class="input-group">
+                                        <select class="form-select" id="YarnDetailCurrency">
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-xxl-6 col-6 col-md-6 col-sm-12" id="CottonDetailspace1"></div>
+                                <div class="col-xl-10 col-lg-10 col-xxl-10 col-10 col-md-10 col-sm-12" id="CottonDetailspace2"></div>
+                                <div class="col-xl-2 col-lg-2 col-xxl-2 col-2 col-md-2 col-sm-12" id="CottonDetailssave">
+                                    <button type="button" id="btn_CottonDetailSave" class="btn btn-dark">Save</button>
+                                </div>
+                                <!--Cotton Details End-->
+                                <!--Table Model Start-->
+                                <div class="modal fade" id="tbl_FabricVerticallycenteredModal" tabindex="-1" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -369,6 +769,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                <!--Table Model End-->
                             </form>
                         </div>
                     </div>
@@ -387,7 +788,7 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title">Accessories Management System</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <button type="button" class="btn-close" id="AccessoriesClose" @* data-bs-dismiss="modal" *@ aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
                             <form class="row g-3">
@@ -397,7 +798,7 @@
                                 <div class="col-xl-3 col-lg-3 col-xxl-3 col-3 col-md-3 col-sm-12">
                                     <div class="input-group">
                                         <label class="form-label fw-bold" style="margin-top:0px;height: 0px;">Order No:</label>
-                                        <input type="text" class="form-control border-start-0" style="margin-left: 4px;border: none;background-color: white;height: 19px;" id="CustomerName" placeholder="" readonly />
+                                        <input type="text" class="form-control border-start-0" style="margin-left: 4px;border: none;background-color: white;height: 19px;" id="OrderNo" placeholder="" readonly />
                                     </div>
                                 </div>
                                 <hr />
@@ -422,19 +823,19 @@
                                                 <path fill-rule="evenodd" d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m-3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2" />
                                             </svg>
                                         </span>
-                                        <select class="form-select" id="FabricSupplier">
+                                        <select class="form-select" id="AccessoriesSupplier">
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-3 col-md-3 col-lg-3 col-xl-3 col-sm-12">
                                     <div class="form-check" style="margin-top:34px;">
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="lightmode1" checked>
+                                        <input class="form-check-input" type="radio" name="AccessoriesType" id="FactorySource" />
                                         <label class="form-check-label">Factory Source</label>
                                     </div>
                                 </div>
                                 <div class="col-3 col-md-3 col-lg-3 col-xl-3 col-sm-12">
                                     <div class="form-check" style="margin-top:34px;">
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="lightmode1" checked>
+                                        <input class="form-check-input" type="radio" name="AccessoriesType" id="NominatedSource" />
                                         <label class="form-check-label">Nominated Source</label>
                                     </div>
                                 </div>
@@ -446,7 +847,7 @@
                                                 <path fill-rule="evenodd" d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m-3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2" />
                                             </svg>
                                         </span>
-                                        <select class="form-select" id="FabricSupplier">
+                                        <select class="form-select" id="Accessories">
                                         </select>
                                     </div>
                                 </div>
@@ -454,21 +855,21 @@
                                     <label class="form-label">Quality Specification</label>
                                     <div class="input-group">
                                         <span class="input-group-text bg-transparent"><i class='bx bxs-user'></i></span>
-                                        <input type="text" class="form-control border-start-0" id="FabricCodeSupplier" placeholder="" />
+                                        <input type="text" class="form-control border-start-0" id="AccessoriesQualitySpecification" placeholder="" />
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-xxl-6 col-6 col-md-6 col-sm-12">
                                     <label class="form-label">Measurement</label>
                                     <div class="input-group">
                                         <span class="input-group-text bg-transparent"><i class='bx bxs-user'></i></span>
-                                        <input type="text" class="form-control border-start-0" id="FabricComposition" placeholder="" />
+                                        <input type="text" class="form-control border-start-0" id="AccessoriesMeasurement" placeholder="" />
                                     </div>
                                 </div>
                                 <div class="col-xl-3 col-lg-3 col-xxl-3 col-3 col-md-3 col-sm-12">
                                     <label class="form-label">Quantity</label>
                                     <div class="input-group">
                                         <span class="input-group-text bg-transparent"><i class='bx bxs-user'></i></span>
-                                        <input type="text" class="form-control border-start-0" id="FabricComposition" placeholder="" />
+                                        <input type="text" class="form-control border-start-0" id="AccessoriesQuantity" placeholder="" />
                                     </div>
                                 </div>
                                 <div class="col-xl-3 col-lg-3 col-xxl-3 col-3 col-md-3 col-sm-12">
@@ -479,7 +880,12 @@
                                                 <path fill-rule="evenodd" d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m-3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2" />
                                             </svg>
                                         </span>
-                                        <select class="form-select" id="FabricSupplier">
+                                        <select class="form-select" id="AccessoriesQuantityType">
+                                            <option value="">--Select--</option>
+                                            <option value="M">M</option>
+                                            <option value="KG">KG</option>
+                                            <option value="YD">YD</option>
+                                            <option value="PCS">PCS</option>
                                         </select>
                                     </div>
                                 </div>
@@ -491,7 +897,7 @@
                                                 <path fill-rule="evenodd" d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m-3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2" />
                                             </svg>
                                         </span>
-                                        <select class="form-select" id="customerType">
+                                        <select class="form-select" id="AccessoriesCurrency">
                                         </select>
                                     </div>
                                 </div>
@@ -499,7 +905,7 @@
                                     <label class="form-label">Invoice No</label>
                                     <div class="input-group">
                                         <span class="input-group-text bg-transparent"><i class='bx bxs-user'></i></span>
-                                        <input type="text" class="form-control border-start-0" id="CustomerName" placeholder="" />
+                                        <input type="text" class="form-control border-start-0" id="AccessoriesInvoiceNo" placeholder="" />
                                     </div>
                                 </div>
                                 <div class="col-xl-10 col-lg-10 col-xxl-10 col-10 col-md-10 col-sm-12"></div>
@@ -516,11 +922,10 @@
         </div>
 
         <!--Accessories Model End-->
-
         <!--Zipper Model Start-->
 
         <div class="col">
-             <div class="modal fade" id="ZipperLargeModal" tabindex="-1" aria-hidden="true">
+            <div class="modal fade" id="ZipperLargeModal" tabindex="-1" aria-hidden="true">
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -560,7 +965,7 @@
                                                 <path fill-rule="evenodd" d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m-3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2" />
                                             </svg>
                                         </span>
-                                        <select class="form-select" id="FabricSupplier">
+                                        <select class="form-select" id="ZipperSupplier">
                                         </select>
                                     </div>
                                 </div>
@@ -584,7 +989,7 @@
                                                 <path fill-rule="evenodd" d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m-3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2" />
                                             </svg>
                                         </span>
-                                        <select class="form-select" id="FabricSupplier">
+                                        <select class="form-select" id="ZipperAccessories">
                                         </select>
                                     </div>
                                 </div>
@@ -596,7 +1001,11 @@
                                                 <path fill-rule="evenodd" d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m-3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2" />
                                             </svg>
                                         </span>
-                                        <select class="form-select" id="FabricSupplier">
+                                        <select class="form-select" id="ZipperMaterial">
+                                            <option value="">--Select--</option>
+                                            <option value="METAL">METAL</option>
+                                            <option value="NYLON">NYLON</option>
+                                            <option value="DELRINPLASTIC">DELRIN (PLASTIC)</option>
                                         </select>
                                     </div>
                                 </div>
@@ -615,7 +1024,13 @@
                                                 <path fill-rule="evenodd" d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m-3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2" />
                                             </svg>
                                         </span>
-                                        <select class="form-select" id="FabricSupplier">
+                                        <select class="form-select" id="ZipperSize">
+                                            <option value="">--Select--</option>
+                                            <option value="3">3</option>
+                                            <option value="4.5">4.5</option>
+                                            <option value="5">5</option>
+                                            <option value="7">7</option>
+                                            <option value="9">9</option>
                                         </select>
                                     </div>
                                 </div>
@@ -634,7 +1049,10 @@
                                                 <path fill-rule="evenodd" d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m-3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2" />
                                             </svg>
                                         </span>
-                                        <select class="form-select" id="FabricSupplier">
+                                        <select class="form-select" id="ZipperLengthType">
+                                            <option value="">--Select--</option>
+                                            <option value="CM">CM</option>
+                                            <option value="INCH">INCH</option>
                                         </select>
                                     </div>
                                 </div>
@@ -672,7 +1090,7 @@
                                                 <path fill-rule="evenodd" d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m-3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2" />
                                             </svg>
                                         </span>
-                                        <select class="form-select" id="customerType">
+                                        <select class="form-select" id="ZipperCurrency">
                                         </select>
                                     </div>
                                 </div>
@@ -680,7 +1098,7 @@
                                     <label class="form-label">Price</label>
                                     <div class="input-group">
                                         <span class="input-group-text bg-transparent"><i class='bx bxs-user'></i></span>
-                                        <input type="text" class="form-control border-start-0" id="CustomerName" placeholder="" />
+                                        <input type="text" class="form-control border-start-0" id="ZipperPrice" placeholder="" />
                                     </div>
                                 </div>
                                 <div class="col-xl-10 col-lg-10 col-xxl-10 col-10 col-md-10 col-sm-12"></div>
@@ -697,7 +1115,6 @@
         </div>
 
         <!--Zipper Model End-->
-
         <!--Packaging Model Strat-->
 
         <div class="col">
@@ -747,10 +1164,16 @@
         </div>
 
         <!--Packaging Model End-->
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleLargeModal">Fabric / Yarn</button><br />
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#AccessoriesLargeModal">Accessories</button><br />
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ZipperLargeModal">Zipper</button><br />
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" id="FabricYarnLargeModal" data-bs-target="#FabricYarnLargeModal">Fabric / Yarn</button><br />
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" id="Accessoriesbutton" data-bs-target="#AccessoriesLargeModal">Accessories</button><br />
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" id="Zipperbutton" data-bs-target="#ZipperLargeModal">Zipper</button><br />
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#PackagingLargeModal">Packaging</button>
+
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+        @* <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.8/dist/umd/popper.min.js"></script> *@
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     </div>
 </div>
 @*  </div>
@@ -759,3 +1182,4 @@
 @*    </div>
 </div> *@
 <script src="~/cutomjquery/traceability.js"></script>
+

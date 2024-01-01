@@ -11,6 +11,6 @@ namespace DataBaseLayer
 {
     public static class HelperClass
     {
-        public static string ConnectionStr = "Data Source=(local);Initial Catalog=POS_DB;Persist Security Info=True;User ID=sa;Password=pwd;Encrypt=False";
+        public static string ConnectionStr = "Data Source=(local);Initial Catalog=TraceMe;Persist Security Info=True;User ID=sa;Password=pwd;Encrypt=False";
     }
 }
