@@ -95,6 +95,60 @@ namespace POS
             string query = "EXEC Sp_Get_TraceabilityType";
             return dt = ReturnDataTable(query);
         }
+        public DataTable GetFabricSupplier()
+        {
+            DataTable dt = new DataTable();
+            string query = " select DISTINCT V.VenderLibraryID ,V.VenderName from vender V JOIN VenderDetail VD on VD.VenderID =V.VenderLibraryID  \r\n    join SupplierType ST on ST.TypeId =VD.ID join VenderDept vdd on vdd.VenderLibraryID =v.VenderLibraryID  where VD.Type = 'Supplier Type'   and vdd.DepartmentID =5  AND  (ST.SupplierType ='PRE SUPPLIER-FABRIC/KNITS' or  ST.SupplierType ='PRE SUPPLIER-FABRIC/WOVEN')  order by V.VenderName asc";
+            return dt = ReturnDataTable(query);
+        }  
+        public DataTable GetFabricType()
+        {
+            DataTable dt = new DataTable();
+            string query = "select FabricTypeId,FabricType from FabricType where FabricTypeId <>3";
+            return dt = ReturnDataTable(query);
+        } 
+        public DataTable GetFabricKind()
+        {
+            DataTable dt = new DataTable();
+            string query = "select FabricKindId,FabricKind as FabricKindName from FabricKind order by FabricKindName asc";
+            return dt = ReturnDataTable(query);
+        } 
+        public DataTable GetAccessoriesSupplier()
+        {
+            DataTable dt = new DataTable();
+            string query = " select DISTINCT V.VenderLibraryID ,V.VenderName from vender V JOIN VenderDetail VD on VD.VenderID =V.VenderLibraryID join SupplierType ST on ST.TypeId =VD.ID join VenderDept vdd on vdd.VenderLibraryID =v.VenderLibraryID where VD.Type = 'Supplier Type'   and vdd.DepartmentID =5  AND  (ST.SupplierType ='PRE SUPPLIER-ACCESSORIES')  order by V.VenderName asc";
+            return dt = ReturnDataTable(query);
+        } 
+        public DataTable GetAccessories()
+        {
+            DataTable dt = new DataTable();
+            string query = "select VVIID,Name from VenderVerticalIntegration where isactive=2 and VVIID not in(35) order by Name asc ";
+            return dt = ReturnDataTable(query);
+        }  
+        public DataTable GetAccessoriesCurrency()
+        {
+            DataTable dt = new DataTable();
+            string query = "select CurrencyID,CurrencyName from Currency where CurrencyID in(73,9,110,46,6) order by CurrencyName asc";
+            return dt = ReturnDataTable(query);
+        }  
+        public DataTable GetZipperSupplier()
+        {
+            DataTable dt = new DataTable();
+            string query = "select DISTINCT V.VenderLibraryID ,V.VenderName from vender V JOIN VenderDetail VD on VD.VenderID =V.VenderLibraryID join SupplierType ST on ST.TypeId =VD.ID join VenderDept vdd on vdd.VenderLibraryID =v.VenderLibraryID where VD.Type = 'Supplier Type'   and vdd.DepartmentID =5 AND  (ST.SupplierType ='PRE SUPPLIER-ZIPPER') order by V.VenderName asc";
+            return dt = ReturnDataTable(query);
+        } 
+        public DataTable GetZipperAccessories()
+        {
+            DataTable dt = new DataTable();
+            string query = "select VVIID,Name from VenderVerticalIntegration where isactive=2 and vviid=35  order by Name asc";
+            return dt = ReturnDataTable(query);
+        } 
+        public DataTable GetYarnType()
+        {
+            DataTable dt = new DataTable();
+            string query = "select YarnTypeId,YarnType as YarnTypeName from YarnType V order by YarnTypeName asc";
+            return dt = ReturnDataTable(query);
+        }
         public DataTable GetVenderVerticalIntegration()
         {
             DataTable dt = new DataTable();
