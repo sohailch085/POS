@@ -148,6 +148,12 @@ namespace POS
             DataTable dt = new DataTable();
             string query = "select YarnTypeId,YarnType as YarnTypeName from YarnType V order by YarnTypeName asc";
             return dt = ReturnDataTable(query);
+        } 
+        public DataTable GetTraceabilityCard()
+        {
+            DataTable dt = new DataTable();
+            string query = "select s.ID,s.POID,s.BatchDONo,FORMAT(s.SourceDate,'yyyy-MM-dd') as SourceDate,v.VenderName,t.FabricType,k.FabricKind as FabricKindName from FabricPreSupplier s inner join FabricType t on s.FabricTypeID=t.FabricTypeId inner join FabricKind k on s.FabricKindId=k.FabricKindId inner join Vender v on s.VenderLibraryID=v.VenderLibraryID where s.POID=4";
+            return dt = ReturnDataTable(query);
         }
         public DataTable GetVenderVerticalIntegration()
         {

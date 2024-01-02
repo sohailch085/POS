@@ -54,6 +54,16 @@ namespace POS.Controllers
         {
             DBConnection db = new DBConnection();
             return Json(GetAllDropDownFill.DataTableToJSONWithJSONNet(db.GetZipperAccessories()));
+        } 
+        public JsonResult GetTraceabilityCard()
+        {
+            DBConnection db = new DBConnection();
+            return Json(GetAllDropDownFill.DataTableToJSONWithJSONNet(db.GetTraceabilityCard()));
+        } 
+        public JsonResult GetTraceabilityType()
+        {
+            DBConnection db = new DBConnection();
+            return Json(GetAllDropDownFill.DataTableToJSONWithJSONNet(db.GetTraceabilityType()));
         }
        
     }
