@@ -1,28 +1,47 @@
 ﻿$(document).ready(function () {
+    TreeCard();
+   
+    $("#ok").on("click", function () {
+        debugger;
+         var TraceabilityType = $('#TraceabilityType option:selected').attr('id');
+        var TraceabilityTypeName = $('#TraceabilityType :selected').text();
+        if (TraceabilityTypeName != "undefined" || TraceabilityTypeName != null) {
+            switch (TraceabilityType) {
+                case "1":
+                    debugger;
+                    $('#FabricYarnLargeModal').modal('show');
+                    break;
+                case "2":
+                    debugger;
+                    GetAccessoriesSupplier();
+                    GetAccessories();
+                    GetAccessoriesCurrency();
+                    $('#AccessoriesLargeModal').modal('show');
+                    break;
+                case "3":
+                    GetZipperSupplier();
+                    GetZipperAccessories();
+                    GetAccessoriesCurrency();
+                    $('#ZipperLargeModal').modal('show');
+                    break;
+                case "4":
+                    $('#PackagingLargeModal').modal('show');
+                    break;
+                default:
+                    break;
 
-    //CreateCard("", "");
-    // NewCare("", "");
+            }
+        }
+        $('#exampleSmallModal').modal("hide");
+        debugger
+    });
+    $('input[name="DetailType"]:selected').trigger('change');
 
-    //$("#CreateCard").click(function () {
-    //    debugger;
-    //    GetTraceabilityType();
-    //    // $("#exampleSmallModal").show();
-    //    $('#exampleSmallModal').modal("show");
-    //    debugger;
-    //});
-    //$("#ok").on("click", function () {
-    //    var TraceabilityType = $('#TraceabilityType option:selected').attr('id');
-    //    var TraceabilityTypeName = $('#TraceabilityType :selected').text();
-    //    if (TraceabilityTypeName != "undefined" || TraceabilityTypeName != null) {
-    //        CreateCard(TraceabilityType, TraceabilityTypeName);
-    //    }
-    //    $('#exampleSmallModal').modal("hide");
-    //    debugger
-
-    //    // CreateCard();
-    //});
-
-
+    $("#AddCard").click(function () {
+        debugger;
+        GetTraceabilityType();
+        $("#exampleSmallModal").modal("show");
+    });
 
     //$("#ok").on("click", function (event) {
     //    debugger;
@@ -76,22 +95,16 @@
                 break;
             case 'YarnDetail':
                 ShowControll(1);
-                //$('#displayData').html('<p>Yarn Detail Data Here</p>');
                 break;
             case 'CottonDetail':
                 ShowControll(2)
-                //$('#displayData').html('<p>Cotton Detail Data Here</p>');
                 break;
         }
     });
     $('input[name="DetailType"]:checked').trigger('change');
-
-    // radio button end
+    
     $('#Accessoriesbutton').click(function () {
         debugger;
-        GetAccessoriesSupplier();
-        GetAccessories();
-        GetAccessoriesCurrency();
         $("#AccessoriesLargeModal").modal("show");
 
     });
@@ -104,19 +117,15 @@
         $('#AccessoriesSupplier option').remove();
         $('#Accessories option').remove();
         $('#AccessoriesCurrency option').remove();
-
-
-
     });
 
     $('#Zipperbutton').click(function () {
         debugger;
-        GetZipperSupplier();
-        GetZipperAccessories();
-        GetAccessoriesCurrency();
+       
     });
-    TreeCard();
+    
 });
+
 
 function ShowControll(id) {
     if (id == 1) {
@@ -185,7 +194,7 @@ function ShowControll(id) {
         $("#YarnDetailspace1").show();
         $("#YarnDetailspace2").show();
         $("#YarnDetailssave").show();
-       
+
     }
     else if (id == 2) {
         //Fabric Details Strat
@@ -327,7 +336,7 @@ function ShowControll(id) {
         $("#FabricDtailsSave").show();
         //Fabric Details End
 
-        
+
     }
 }
 
@@ -564,70 +573,183 @@ function GetZipperAccessories() {
     });
 }
 
-
-
-
-// Tree start
-// Sample data (replace with your actual data)
-
-function createCard(data) {
-    debugger;
-    var cardHtml = `
-            
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">${data.title}</h5>
-                        <p class="card-text">${data.description}</p>
-                        <a href="#" class="btn btn-primary">View Details</a>
-                    </div>
-                </div>
-          
-        `;
-    return cardHtml;
+function GetTraceabilityType() {
+    $("#TraceabilityType").html('');
+    $.ajax({
+        type: "GET",
+        url: "/Traceability/GetTraceabilityType",
+        contentType: "application/json",
+        async: false,
+        success: function (response) {
+            debugger;
+            console.log(response);
+            var Traceability = JSON.parse(response);
+            var htmlOptions = '<option>--Select--</option>'
+            debugger;
+            for (var i = 0; i < Traceability.length; i++) {
+                var uppercaseTraceability = Traceability[i].Name.toUpperCase();
+                htmlOptions += '<option id=' + Traceability[i].ID + '>' + uppercaseTraceability + '</option>'
+            }
+            $("#TraceabilityType").append(htmlOptions);
+        },
+        error: function (error) {
+            console.error("Error getting parent group:", error);
+        }
+    });
 }
 
-function TreeCard() {
-    var dashboardData = [
-        { title: 'Builds', description: 'View and manage builds.' },
-        { title: 'Builds', description: 'View and manage builds.' },
-        { title: 'Builds', description: 'View and manage builds.' },
-        { title: 'Builds', description: 'View and manage builds.' },
-        { title: 'Builds', description: 'View and manage builds.' },
-        { title: 'Builds', description: 'View and manage builds.' },
-        { title: 'Builds', description: 'View and manage builds.' },
-        { title: 'Builds', description: 'View and manage builds.' },
-        { title: 'Builds', description: 'View and manage builds.' },
-        { title: 'Builds', description: 'View and manage builds.' },
-        { title: 'Builds', description: 'View and manage builds.' },
-        { title: 'Builds', description: 'View and manage builds.' },
-        { title: 'Builds', description: 'View and manage builds.' },
-        { title: 'Builds', description: 'View and manage builds.' },
-        { title: 'Builds', description: 'View and manage builds.' },
-        { title: 'Builds', description: 'View and manage builds.' },
-        { title: 'Builds', description: 'View and manage builds.' },
-        { title: 'Builds', description: 'View and manage builds.' },
-        { title: 'Builds', description: 'View and manage builds.' },
-        { title: 'Builds', description: 'View and manage builds.' },
-        { title: 'Builds', description: 'View and manage builds.' },
-        { title: 'Builds', description: 'View and manage builds.' },
-        { title: 'Builds', description: 'View and manage builds.' },
-        { title: 'Builds', description: 'View and manage builds.' },
-        { title: 'Builds', description: 'View and manage builds.' },
-        { title: 'Builds', description: 'View and manage builds.' },
-        { title: 'Builds', description: 'View and manage builds.' }
-        // Add more data as needed
-    ];
+// dynamic Create Card Tree start 
+function createCard(data, counter, avilabecontrol) {
     debugger;
-    var cardContainer = $('#cardContainer');
+    if (counter == avilabecontrol) {
+        var cardHtml = `
+                <div class="card border-top border-0 border-4 border-dark">
+                    <div class="card-body">
+                     <div class="row mb-3">
+                        <label class="col-sm-6 col-form-label fw-bold"></label>
+                         <div class="col-sm-12">
+                            <label class="col-sm-12 col-form-label fw-bold" style="width: 100%">${data.VenderName}</label>
+                        </div>
+                      </div>
+                      <div class="row mb-3">
+                        <label class="col-sm-6 col-form-label fw-bold">Batch# :</label>
+                         <div class="col-sm-6">
+                            <label class="col-sm-6 col-form-label" style="margin-left: -102px;width: 100px">${data.BatchDONo}</label>
+                        </div>
+                      </div>
+                       <div class="row mb-3">
+                        <label class="col-sm-6 col-form-label fw-bold"> Date   :</label>
+                         <div class="col-sm-6">
+                            <label class="col-sm-6 col-form-label" style="margin-left: -102px;width: 100px">${data.SourceDate}</label>
+                        </div>
+                      </div>                      
+                       <div class="row mb-3">
+                        <label class="col-sm-6 col-form-label fw-bold"> Type   :</label>
+                         <div class="col-sm-6">
+                            <label class="col-sm-6 col-form-label" style="margin-left: -102px;width: 100px">${data.FabricType}</label>
+                        </div>
+                      </div>
+                       <div class="row mb-3">
+                        <label class="col-sm-6 col-form-label fw-bold"> Kind   :</label>
+                         <div class="col-sm-6">
+                            <label class="col-sm-6 col-form-label" style="margin-left: -102px;width: 100px">${data.FabricKindName}</label>
+                        </div>
+                      </div>
+                      <div class="row" style="float: right;margin-top: -246px;margin-right: -54px;">
+						<label class="col-sm-3 col-form-label"></label>
+						<div class="col-sm-9" id="button-${counter}">							
+                             <svg id="plusIcon-${counter}" xmlns = "http://www.w3.org/2000/ svg" width = "16" height = "16" fill =                                "currentColor" class="bi bi-plus-circle" viewBox = "0 0 16 16" style="margin-top:91px;"> 
+                                 <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+                                 <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1                           0-1h3v-3A.5.5 0 0 1 8 4" />
+                             </svg>
+						</div>
+					 </div>                     
+                    </div>
+                </div>
+        `;        
+        $(document).on('click', `#plusIcon-${counter}`, function () {
+            debugger;
 
-    for (var i = 0; i < dashboardData.length; i++) {
-        var cardData = dashboardData[i];
-        var cardHtml = createCard(cardData);
-        cardContainer.append(cardHtml);
+            GetTraceabilityType();
+            $('#exampleSmallModal').modal('show');
+        });
+    } else {
+        var url = window.location.href;
+        var cardHtml = `            
+                <div class="card border-top border-0 border-4 border-dark">
+                    <div class="card-body">
+                     <div class="row mb-3">
+                        <label class="col-sm-6 col-form-label fw-bold"></label>
+                         <div class="col-sm-12">
+                            <label class="col-sm-12 col-form-label fw-bold" style="width: 100%">${data.VenderName}</label>
+                        </div>
+                      </div>
+                      <div class="row mb-3">
+                        <label class="col-sm-6 col-form-label fw-bold">Batch# :</label>
+                         <div class="col-sm-6">
+                            <label class="col-sm-6 col-form-label" style="margin-left: -102px;width: 100px">${data.BatchDONo}</label>
+                        </div>
+                      </div>
+                       <div class="row mb-3">
+                        <label class="col-sm-6 col-form-label fw-bold">Date :</label>
+                         <div class="col-sm-6">
+                            <label class="col-sm-6 col-form-label" style="margin-left: -102px;width: 100px">${data.SourceDate}</label>
+                        </div>
+                      </div>                      
+                       <div class="row mb-3">
+                        <label class="col-sm-6 col-form-label fw-bold">Type :</label>
+                         <div class="col-sm-6">
+                            <label class="col-sm-6 col-form-label" style="margin-left: -102px;width: 100px">${data.FabricType}</label>
+                        </div>
+                      </div>
+                       <div class="row mb-3">
+                        <label class="col-sm-6 col-form-label fw-bold">Kind :</label>
+                         <div class="col-sm-6">
+                            <label class="col-sm-6 col-form-label" style="margin-left: -102px;width: 100px">${data.FabricKindName}</label>
+                        </div>
+                      </div>
+                      <div class="row" style="float: right;margin-top: -246px;margin-right: -54px;">
+						<label class="col-sm-3 col-form-label"></label>
+						<div class="col-sm-9" id="button-${counter}">							
+                             <svg id="plusIcon-${counter}" name=${data.ID} xmlns = "http://www.w3.org/2000/ svg" width = "16" height = "16" fill ="currentColor" class="bi bi-plus-circle" viewBox = "0 0 16 16" style="margin-top:91px;"> 
+                                 <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+                                 <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1                           0-1h3v-3A.5.5 0 0 1 8 4" />
+                             </svg>
+						</div>
+					 </div>
+                      <div class="row" style="float: right;margin-top: -246px;margin-right: -54px;">
+						<label class="col-sm-3 col-form-label"></label>
+						<div class="col-sm-9">							
+                           <img src="${url}/assets/CustomizeIcon/arrow.png" alt="Girl in a jacket" style="width: 66px;height: 42px; margin-left: 125px;margin-top: 111px;">
+						</div>
+					 </div>
+                    </div>
+                </div>
+        `;
+        $(document).on('click', `#plusIcon-${counter}`, function () {
+            debugger;
+            // Get the id attribute value using .attr('id')
+            var id = $(`#plusIcon-${counter}`).attr('name');
+            debugger
+            // Split the id using the '-' character
+            var parts = id.split('-');
+
+            // Extract the counter value (assuming it's the second part)
+            var counter = parts[1];
+
+            console.log(counter); // This will output the value after 'plusIcon-'
+
+            GetTraceabilityType();
+            $('#exampleSmallModal').modal('show');
+        });
     }
-};
-//$(document).ready(function () {
    
-//});
-//tree end
-
+    return cardHtml;
+}
+function TreeCard() {
+    debugger;
+    var dashboardData = [];
+    $.ajax({
+        type: "GET",
+        url: "/Traceability/GetTraceabilityCard",
+        contentType: "application/json",
+        async: false,
+        success: function (response) {
+            debugger;
+            console.log(response);
+            var TraceabilityCard = JSON.parse(response);
+            dashboardData = TraceabilityCard;
+            var cardContainer = $('#cardContainer');
+            var avilabecontrol = dashboardData.length-1;
+            for (var i = 0; i < dashboardData.length; i++) {
+                var cardData = dashboardData[i];
+                var cardHtml = createCard(cardData, i, avilabecontrol);
+                cardContainer.append(cardHtml);
+            }
+        },
+        error: function (error) {
+            console.error("Error getting parent group:", error);
+        }
+    });
+};
+// dynamic Create Card Tree End 
